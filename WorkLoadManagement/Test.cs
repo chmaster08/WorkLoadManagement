@@ -13,5 +13,6 @@ namespace WorkLoadManagement
 
         public double d { get; set; }
 
+
     }
 }

@@ -23,6 +23,7 @@ namespace WorkLoadManagement
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new TestList();
         }
     }
 }

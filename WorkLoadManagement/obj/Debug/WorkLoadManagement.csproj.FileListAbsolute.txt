@@ -1,0 +1,15 @@
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\bin\Debug\WorkLoadManagement.exe.config
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\bin\Debug\WorkLoadManagement.exe
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\bin\Debug\WorkLoadManagement.pdb
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csprojAssemblyReference.cache
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\MainWindow.g.cs
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\App.g.cs
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement_MarkupCompile.cache
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement_MarkupCompile.lref
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\MainWindow.baml
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.g.resources
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.Properties.Resources.resources
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csproj.GenerateResource.cache
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csproj.CoreCompileInputs.cache
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.exe
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.pdb

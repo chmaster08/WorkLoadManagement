@@ -13,3 +13,17 @@ C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManage
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csproj.CoreCompileInputs.cache
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.exe
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csprojAssemblyReference.cache
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\App.g.cs
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement_MarkupCompile.cache
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.exe
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\WorkLoadManagement.exe.config
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\WorkLoadManagement.exe
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\WorkLoadManagement.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\MainWindow.g.cs
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement_MarkupCompile.lref
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\MainWindow.baml
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.g.resources
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.Properties.Resources.resources
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csproj.GenerateResource.cache

@@ -5,9 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkLoadManagement"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="FirstTest" Height="450" Width="800">
     <Grid>
-        <DataGrid ItemsSource="{Binding Path=Data}" x:Name="dataGrid" HorizontalAlignment="Left" Height="100" Margin="392,160,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label Content="Hello" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Margin="103,155,589,0"/>
+        <Button Content="{Binding Id}" HorizontalAlignment="Left" Margin="354,194,0,0" VerticalAlignment="Top" Width="75"/>
+        <Calendar HorizontalAlignment="Left" Margin="300,71,0,0" VerticalAlignment="Bottom"/>
+        <ComboBox HorizontalAlignment="Left" Margin="93,194,0,0" VerticalAlignment="Top" Width="120"/>
+
 
     </Grid>
+
 </Window>

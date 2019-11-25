@@ -23,7 +23,13 @@ namespace WorkLoadManagement
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new TestList();
+            var member = new Member
+            {
+                Id = "Osaka",
+                name = "takuto",
+                age = 26
+            };
+            this.DataContext = member;
         }
     }
 }

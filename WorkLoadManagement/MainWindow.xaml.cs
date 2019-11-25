@@ -31,5 +31,10 @@ namespace WorkLoadManagement
             };
             this.DataContext = member;
         }
+
+        private void BtnNew_Click(object sender,RoutedEventArgs e)
+        {
+
+        }
     }
 }

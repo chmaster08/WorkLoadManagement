@@ -5,14 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkLoadManagement"
         mc:Ignorable="d"
-        Title="FirstTest" Height="450" Width="800">
+        Title="Factory" Height="350" Width="400" ResizeMode="NoResize" ShowInTaskbar="False">
     <Grid>
-        <Label Content="Hello" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Margin="103,155,589,0"/>
-        <Button Content="{Binding Id}" HorizontalAlignment="Left" Margin="354,194,0,0" VerticalAlignment="Top" Width="75"/>
-        <Calendar HorizontalAlignment="Left" Margin="300,71,0,0" VerticalAlignment="Bottom"/>
-        <ComboBox HorizontalAlignment="Left" Margin="93,194,0,0" VerticalAlignment="Top" Width="120"/>
-
-
+        <Grid.Background>
+            <SolidColorBrush Color="White"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock
+            x:Name="titlecall"
+            Text="Please Select Menu."
+            Grid.Row="1"
+            Grid.Column="1"
+            FontSize="24"
+            HorizontalAlignment="Center"
+            >
+        </TextBlock>
+        <Button
+            Content="New Work"
+            Click="BtnNew_Click"
+            Grid.Column="1"
+            Grid.Row="3"
+            Margin="10"
+            ></Button>
     </Grid>
 
 </Window>

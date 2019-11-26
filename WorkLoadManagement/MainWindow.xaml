@@ -34,10 +34,19 @@
         <Button
             Content="New Work"
             Click="BtnNew_Click"
+            HorizontalAlignment="Left"
             Grid.Column="1"
             Grid.Row="3"
-            Margin="10"
+            Margin="10,10,10,10" Width="124"
             ></Button>
+        <Button
+            Content="See data"
+            Click="BtnData_Click"
+            HorizontalAlignment="Right"
+            Grid.Column="1"
+            Grid.Row="3"
+            Margin="10,10,10,10" Width="124"
+            />
     </Grid>
 
 </Window>

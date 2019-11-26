@@ -20,21 +20,25 @@ namespace WorkLoadManagement
     /// </summary>
     public partial class MainWindow : Window
     {
+        static Control myControl = new Control();
+        private MainWindowViewModel myViewModel =new MainWindowViewModel(myControl);
+
+
         public MainWindow()
         {
             InitializeComponent();
-            var member = new Member
-            {
-                Id = "Osaka",
-                name = "takuto",
-                age = 26
-            };
-            this.DataContext = member;
+            this.DataContext =myViewModel;
         }
 
         private void BtnNew_Click(object sender,RoutedEventArgs e)
         {
+            myViewModel.OpenNewWorkView();
 
+        }
+
+        private void BtnData_Click(object sender,RoutedEventArgs e)
+        {
+            myViewModel.OpenDataView();
         }
     }
 }

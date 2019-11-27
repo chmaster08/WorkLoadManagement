@@ -16,7 +16,20 @@ namespace WorkLoadManagement
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public DateTime CreateTime { get; set; }
-        public string WorkCode { get; set; }
+        public string workCode { get; set; }
         public string Comment { get; set; }
+
+        public TimeSpan GetWorkTime()
+        {
+            return EndTime - StartTime;
+        }
+    }
+
+    public class WorkCode
+    {
+        public WorkCode()
+        {
+        }
+
     }
 }

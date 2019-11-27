@@ -100,7 +100,7 @@ namespace WorkLoadManagement
             workitem = new WorkItem();
             workitem.StartTime = starttime;
             workitem.EndTime = endtime;
-            workitem.WorkCode = testlist[itemindex];
+            workitem.workCode = testlist[itemindex];
             workitem.Comment = comment;
             mycontrol.SetWorkData(workitem);
         }

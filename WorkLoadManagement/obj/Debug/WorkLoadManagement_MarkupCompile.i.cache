@@ -9,12 +9,12 @@ WorkLoadManagement
 none
 false
 DEBUG;TRACE
-C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\App.xaml
-21413950639
 
-151365846856
+31782012755
+
+171957260740
 181322107769
-MainWindow.xaml;RegisterWork.xaml;
+App.xaml;MainWindow.xaml;RegisterWork.xaml;
 
-False
+True
 

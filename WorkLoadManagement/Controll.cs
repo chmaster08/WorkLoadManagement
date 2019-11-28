@@ -8,14 +8,28 @@ namespace WorkLoadManagement
 {
     public class Control
     {
-        private WorkItem myitem;
+        private WorkDataList workDataList;
+        private WorkDataController dataController;
+
+        public Control()
+        {
+            workDataList = new WorkDataList();
+            dataController = new WorkDataController(workDataList);
+        }
+
+        public void InitializeGetWorkItem()
+        {
+            
+        }
+
+
 
         public void SetWorkData(WorkItem item)
         {
-            myitem = new WorkItem();
-            myitem = item;
+            dataController.Add(item);
         }
 
+        
     }
 
     

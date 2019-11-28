@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkLoadManagement
 {
-    public class MonthlyWorkItem : IWorkDataList
+    public class MonthlyWorkItem 
     {
         private List<WorkItem> itemList;
 
@@ -16,49 +16,8 @@ namespace WorkLoadManagement
 
         public MonthlyWorkItem(DateTime dateTime)
         {
-            //月を指定できるように
-            Calc();  
+            //月を指定できるように  
         }
 
-        public void Calc()
-        {
-            foreach (var item in itemList)
-            {
-                totaltime += item.GetWorkTime();
-            }
-            foreach (var item in itemList)
-            {
-                workcodelist.Add(item.workCode);
-            }
-            foreach (var item in itemList)
-            {
-                if (workcodetime.ContainsKey(item.workCode))
-                {
-                    workcodetime[item.workCode] += item.GetWorkTime();
-                }
-                else
-                {
-                    workcodetime.Add(item.workCode, item.GetWorkTime());
-                }
-            }
-        }
-
-        public TimeSpan GetTotalTime()
-        {
-            if(totaltime!=null)
-            {
-                return totaltime;
-            }
-            else
-            {
-                throw new Exception("Nodata");
-            }
-        }
-
-        public TimeSpan GetTotalTime(string workcode)
-        {
-            return workcodetime[workcode];
-            throw new NotImplementedException();
-        }
     }
 }

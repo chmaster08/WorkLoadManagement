@@ -20,13 +20,13 @@ namespace WorkLoadManagement
     /// </summary>
     public partial class MainWindow : Window
     {
-        static Control myControl = new Control();
-        private MainWindowViewModel myViewModel =new MainWindowViewModel(myControl);
+        MainWindowViewModel myViewModel;
 
 
-        public MainWindow()
+        public MainWindow(MainWindowViewModel viewModel)
         {
             InitializeComponent();
+            myViewModel = viewModel;
             this.DataContext =myViewModel;
         }
 

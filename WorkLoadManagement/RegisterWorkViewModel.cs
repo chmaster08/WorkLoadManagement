@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,12 @@ namespace WorkLoadManagement
         private DateTime starttime;
         private DateTime endtime;
         private string comment;
-        private TestList mytestlist = new TestList();
+        private TestList mytestlist;
         private ObservableCollection<string> testlist;
         private int itemindex;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public RegisterWorkViewModel(Control control)
         {
             mycontrol = control;
@@ -39,6 +43,7 @@ namespace WorkLoadManagement
             set
             {
                 itemindex = value;
+                OnPropertyChanged("ItemIndex");
             }
         }
 
@@ -82,6 +87,7 @@ namespace WorkLoadManagement
         private void Initialize()
         {
             LoadWorkCode();
+            itemindex = 0;
             starttime = DateTime.Now;
             endtime = DateTime.Now;
         }
@@ -89,9 +95,9 @@ namespace WorkLoadManagement
         private void LoadWorkCode()
         {
             testlist = new ObservableCollection<string>();
-            testlist.Add("test1");
-            testlist.Add("test2");
-            testlist.Add("test3");
+            testlist.Add("Hathor");
+            testlist.Add("CM-CT1");
+            testlist.Add("Other");
 
         }
 
@@ -105,6 +111,14 @@ namespace WorkLoadManagement
             mycontrol.SetWorkData(workitem);
         }
 
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if(handler!=null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
 
     }
 }

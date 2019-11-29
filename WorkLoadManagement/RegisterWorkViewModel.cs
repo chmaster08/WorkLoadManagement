@@ -17,7 +17,7 @@ namespace WorkLoadManagement
         private string comment;
         private TestList mytestlist;
         private ObservableCollection<string> testlist;
-        private int itemindex;
+        private string itemindex;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -27,6 +27,44 @@ namespace WorkLoadManagement
             Initialize();
         }
 
+        private void Initialize()
+        {
+            LoadWorkCode();
+            starttime = DateTime.Now;
+            endtime = DateTime.Now;
+        }
+
+        private void LoadWorkCode()
+        {
+            testlist = new ObservableCollection<string>();
+            testlist.Add("Hathor");
+            testlist.Add("CM-CT1");
+            testlist.Add("Other");
+
+        }
+
+        public void SetWorkData()
+        {
+            Check_value();
+            workitem = new WorkItem();
+            workitem.StartTime = starttime;
+            workitem.EndTime = endtime;
+            workitem.workCode = itemindex;
+            workitem.Comment = comment;
+            mycontrol.SetWorkData(workitem);
+        }
+
+        private void Check_value()
+        {
+            TimeSpan time = endtime - starttime;
+            if(time <= new TimeSpan(0))
+            {
+                //Error Dialog
+            }
+
+
+        }
+
         public ObservableCollection<string> MyTestList
         {
             get
@@ -34,7 +72,7 @@ namespace WorkLoadManagement
                 return testlist;
             }
         }
-        public int ItemIndex
+        public string ItemIndex
         {
             get
             {
@@ -84,32 +122,7 @@ namespace WorkLoadManagement
 
 
 
-        private void Initialize()
-        {
-            LoadWorkCode();
-            itemindex = 0;
-            starttime = DateTime.Now;
-            endtime = DateTime.Now;
-        }
-
-        private void LoadWorkCode()
-        {
-            testlist = new ObservableCollection<string>();
-            testlist.Add("Hathor");
-            testlist.Add("CM-CT1");
-            testlist.Add("Other");
-
-        }
-
-        public void SetWorkData()
-        {
-            workitem = new WorkItem();
-            workitem.StartTime = starttime;
-            workitem.EndTime = endtime;
-            workitem.workCode = testlist[itemindex];
-            workitem.Comment = comment;
-            mycontrol.SetWorkData(workitem);
-        }
+        
 
         protected void OnPropertyChanged(string name)
         {

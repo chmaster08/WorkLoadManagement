@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkLoadManagement"
         mc:Ignorable="d"
-        Title="Factory" Height="350" Width="400" ResizeMode="NoResize" ShowInTaskbar="False">
+        Title="Factory" Height="350" Width="400" ResizeMode="NoResize" ShowInTaskbar="False" >
     <Grid>
         <Grid.Background>
             <SolidColorBrush Color="White"/>
@@ -32,7 +32,7 @@
             >
         </TextBlock>
         <Button
-            Content="New Work"
+            Content="Register Work"
             Click="BtnNew_Click"
             HorizontalAlignment="Left"
             Grid.Column="1"
@@ -40,7 +40,7 @@
             Margin="10,10,10,10" Width="124"
             ></Button>
         <Button
-            Content="See data"
+            Content="Analize"
             Click="BtnData_Click"
             HorizontalAlignment="Right"
             Grid.Column="1"

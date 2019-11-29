@@ -18,6 +18,13 @@ namespace WorkLoadManagement
         {
             WorkDataList.itemList.Add(item);
         }
+        public void AddList(WorkDataList itemlist)
+        {
+            foreach(var item in itemlist.itemList)
+            {
+                WorkDataList.itemList.Add(item);
+            }
+        }
 
         public void SetData(WorkItem item)
         {
@@ -32,7 +39,7 @@ namespace WorkLoadManagement
             return WorkDataList.workcodetime[workcode];
         }
 
-        private void Calc()
+        public virtual void Calc()
         {
             var itemList = WorkDataList.itemList;
             foreach (var item in itemList)

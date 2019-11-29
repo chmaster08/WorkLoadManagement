@@ -38,5 +38,10 @@ namespace WorkLoadManagement
         {
             this.Close();
         }
+
+        private void BtnNewWorkCode(object sender, RoutedEventArgs e)
+        {
+            //WorkCode 新規追加
+        }
     }
 }

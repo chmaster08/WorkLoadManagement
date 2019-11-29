@@ -17,6 +17,7 @@ namespace WorkLoadManagement
         public MainWindowViewModel(Control control)
         {
             mycontrol = control;
+            mycontrol.Input();
         }
 
         public void OpenNewWorkView()
@@ -30,6 +31,8 @@ namespace WorkLoadManagement
 
         public void OpenDataView()
         {
+            mycontrol.Output();
+
             //統計データ表示画面
         }
     }

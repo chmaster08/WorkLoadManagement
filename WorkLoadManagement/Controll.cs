@@ -13,14 +13,20 @@ namespace WorkLoadManagement
         private WorkDataList workDataList;
         private WorkDataController dataController;
 
+
         public Control()
         {
             workDataList = new WorkDataList();
             dataController = new WorkDataController(workDataList);
+            WorkCodeList = new List<string>();
         }
+
+        public List<string> WorkCodeList { get; set; }
+
 
         public void InitializeGetWorkItem()
         {
+
             
         }
 
@@ -33,15 +39,34 @@ namespace WorkLoadManagement
 
         public void Output()
         {
-            string output = JsonConvert.SerializeObject(workDataList);
-            File.WriteAllText(@"C:\Users\e13498\Documents\WorkManager\Output.data",output);
+            try
+            {
+                string output = JsonConvert.SerializeObject(workDataList);
+                File.WriteAllText(@"C:\Users\e13498\Output.data", output);
+            }
+            catch 
+            { }
         }
 
         public void Input()
         {
-            string input = File.ReadAllText(@"C:\Users\e13498\WorkManager\Output.data");
-            var deserialized = JsonConvert.DeserializeObject<WorkDataList>(input);
-            dataController.AddList(deserialized);
+            if (File.Exists(@"C:\Users\e13498\Output.data"))
+            {
+                string input = File.ReadAllText(@"C:\Users\e13498\Output.data");
+                var deserialized = JsonConvert.DeserializeObject<WorkDataList>(input);
+                dataController.Import(deserialized);
+                ImportCodeList(workDataList);
+
+            }
+
+        }
+
+        private void ImportCodeList(WorkDataList itemlist)
+        {
+            foreach(var item in itemlist.workcodelist)
+            {
+                WorkCodeList.Add(item);
+            }
         }
 
         

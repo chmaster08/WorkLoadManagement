@@ -18,13 +18,21 @@ namespace WorkLoadManagement
         {
             WorkDataList.itemList.Add(item);
         }
-        public void AddList(WorkDataList itemlist)
+
+        public void Import(WorkDataList itemlist)
+        {
+            AddList(itemlist);
+        }
+
+        private void AddList(WorkDataList itemlist)
         {
             foreach(var item in itemlist.itemList)
             {
                 WorkDataList.itemList.Add(item);
             }
         }
+
+        
 
         public void SetData(WorkItem item)
         {

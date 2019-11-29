@@ -15,8 +15,8 @@ namespace WorkLoadManagement
         private DateTime starttime;
         private DateTime endtime;
         private string comment;
-        private TestList mytestlist;
-        private ObservableCollection<string> testlist;
+        private TestList workcodeitem;
+        private ObservableCollection<ComboBoxItem> workcodelist;
         private string itemindex;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -24,7 +24,9 @@ namespace WorkLoadManagement
         public RegisterWorkViewModel(Control control)
         {
             mycontrol = control;
+            workcodelist = new ObservableCollection<ComboBoxItem>();
             Initialize();
+
         }
 
         private void Initialize()
@@ -36,11 +38,10 @@ namespace WorkLoadManagement
 
         private void LoadWorkCode()
         {
-            testlist = new ObservableCollection<string>();
-            testlist.Add("Hathor");
-            testlist.Add("CM-CT1");
-            testlist.Add("Other");
-
+            for(int i=0;i<mycontrol.WorkCodeList.Count;i++)
+            {
+                workcodelist.Add(new ComboBoxItem(mycontrol.WorkCodeList[i]));
+            }
         }
 
         public void SetWorkData()
@@ -65,11 +66,11 @@ namespace WorkLoadManagement
 
         }
 
-        public ObservableCollection<string> MyTestList
+        public ObservableCollection<ComboBoxItem> WorkCodeList
         {
             get
             {
-                return testlist;
+                return workcodelist;
             }
         }
         public string ItemIndex
@@ -120,7 +121,14 @@ namespace WorkLoadManagement
             }
         }
 
-
+        public struct ComboBoxItem
+        {
+            public ComboBoxItem(string code)
+            {
+                ItemCode = code;
+            }
+            public string ItemCode { get; set; }
+        }
 
         
 

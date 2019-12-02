@@ -15,8 +15,9 @@ namespace WorkLoadManagement
         private DateTime starttime;
         private DateTime endtime;
         private string comment;
+        private string newcode;
         private TestList workcodeitem;
-        private ObservableCollection<ComboBoxItem> workcodelist;
+        private ObservableCollection<string> workcodelist;
         private string itemindex;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -24,13 +25,14 @@ namespace WorkLoadManagement
         public RegisterWorkViewModel(Control control)
         {
             mycontrol = control;
-            workcodelist = new ObservableCollection<ComboBoxItem>();
+            workcodelist = new ObservableCollection<string>();
             Initialize();
 
         }
 
         private void Initialize()
         {
+            mycontrol.GetWorkCodeList();
             LoadWorkCode();
             starttime = DateTime.Now;
             endtime = DateTime.Now;
@@ -40,7 +42,7 @@ namespace WorkLoadManagement
         {
             for(int i=0;i<mycontrol.WorkCodeList.Count;i++)
             {
-                workcodelist.Add(new ComboBoxItem(mycontrol.WorkCodeList[i]));
+                workcodelist.Add(mycontrol.WorkCodeList[i]);
             }
         }
 
@@ -66,7 +68,7 @@ namespace WorkLoadManagement
 
         }
 
-        public ObservableCollection<ComboBoxItem> WorkCodeList
+        public ObservableCollection<string> WorkCodeList
         {
             get
             {
@@ -83,6 +85,20 @@ namespace WorkLoadManagement
             {
                 itemindex = value;
                 OnPropertyChanged("ItemIndex");
+            }
+        }
+
+        public string InputCode
+        {
+            set
+            {
+                newcode = value;
+                workcodelist.Add(newcode);
+                mycontrol.SetWorkCodeToList(newcode);
+                itemindex = value;
+                OnPropertyChanged("WorkCodeList");
+                OnPropertyChanged("ItemIndex");
+
             }
         }
 
@@ -121,16 +137,8 @@ namespace WorkLoadManagement
             }
         }
 
-        public struct ComboBoxItem
-        {
-            public ComboBoxItem(string code)
-            {
-                ItemCode = code;
-            }
-            public string ItemCode { get; set; }
-        }
 
-        
+
 
         protected void OnPropertyChanged(string name)
         {

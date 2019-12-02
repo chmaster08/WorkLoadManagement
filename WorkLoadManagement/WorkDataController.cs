@@ -9,30 +9,51 @@ namespace WorkLoadManagement
     public class WorkDataController
     {
         private WorkDataList WorkDataList;
-        public WorkDataController(WorkDataList dataList)
+        private WorkCodeList workCodeList;
+        public WorkDataController(WorkDataList dataList, WorkCodeList codelist)
         {
             WorkDataList = dataList;
+            workCodeList = codelist;
         }
 
         public void Add(WorkItem item)
         {
             WorkDataList.itemList.Add(item);
+            workCodeList.Add(item.workCode);
+            
         }
+        public WorkDataList GetWorkCodeList()
+        {
+            return WorkDataList;
+        }
+       
 
-        public void Import(WorkDataList itemlist)
+        public void ImportWorkData(WorkDataList itemlist)
         {
             AddList(itemlist);
         }
 
-        private void AddList(WorkDataList itemlist)
+        public void ImportWorkCode(WorkCodeList itemlist)
+        {
+            AddList(itemlist);
+        }
+
+        public void AddList(WorkDataList itemlist)
         {
             foreach(var item in itemlist.itemList)
             {
                 WorkDataList.itemList.Add(item);
             }
         }
+        public void AddList(WorkCodeList itemlist)
+        {
+            foreach (var item in itemlist.workCodeList)
+            {
+                workCodeList.Add(item);
+            }
+        }
 
-        
+
 
         public void SetData(WorkItem item)
         {
@@ -54,10 +75,7 @@ namespace WorkLoadManagement
             {
                 WorkDataList.totaltime += item.GetWorkTime();
             }
-            foreach (var item in itemList)
-            {
-                WorkDataList.workcodelist.Add(item.workCode);
-            }
+           //todo:コードごとの合算値
             foreach (var item in itemList)
             {
                 if (WorkDataList.workcodetime.ContainsKey(item.workCode))

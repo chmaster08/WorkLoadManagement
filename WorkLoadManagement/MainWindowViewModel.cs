@@ -32,6 +32,10 @@ namespace WorkLoadManagement
         public void OpenDataView()
         {
             mycontrol.Output();
+            AnalizeViewModel viewModel = new AnalizeViewModel(mycontrol);
+            Analize view = new Analize(viewModel);
+            view.Owner = Application.Current.MainWindow;
+            view.ShowDialog();
 
             //統計データ表示画面
         }

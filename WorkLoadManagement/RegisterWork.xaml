@@ -30,8 +30,9 @@
         <xctk:DateTimePicker Value="{Binding EndTime}" Format="Custom" FormatString="yyyy/MM/dd HH:mm" FontSize="15" TextAlignment="Justify" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1"  Margin="0,0,0,10" VerticalAlignment="Bottom" Height="40" Width="170"/>
 
         <ComboBox 
-            ItemsSource="{Binding MyTestList,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
+            ItemsSource="{Binding WorkCodeList,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
             SelectedItem="{Binding ItemIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+            Text="{Binding InputCode,UpdateSourceTrigger=LostFocus}"
             Grid.Row="2" 
             Grid.Column="1" 
             Grid.ColumnSpan="2" 
@@ -41,8 +42,10 @@
             Margin="0,20,0,0"
             FontSize="20"
             IsSynchronizedWithCurrentItem="True"
-            ></ComboBox>
-        <Button x:Name="New_Code" Content="＋" Height="30" Width="30" Grid.Column="2" Margin="125,20,43,0" VerticalAlignment="Center" Grid.Row="2" FontSize="20" RenderTransformOrigin="0.967,-0.333">
+            IsEditable="True"
+            >
+        </ComboBox>
+        <Button x:Name="New_Code" Click="BtnNewWorkCode" Content="＋" Height="30" Width="30" Grid.Column="2" Margin="125,20,43,0" VerticalAlignment="Center" Grid.Row="2" FontSize="20" RenderTransformOrigin="0.967,-0.333">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border x:Name="Border"

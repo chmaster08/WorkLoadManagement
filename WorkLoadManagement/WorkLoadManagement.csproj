@@ -74,13 +74,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Analize.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Analize.xaml.cs">
+      <DependentUpon>Analize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AnalizeViewModel.cs" />
     <Compile Include="IWorkDataList.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="MonthlyWorkItem.cs" />
+    <Compile Include="WorkCodeList.cs" />
     <Compile Include="WorkDataController.cs" />
     <Compile Include="WorkItem.cs" />
     <Page Include="MainWindow.xaml">

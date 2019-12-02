@@ -11,7 +11,6 @@ namespace WorkLoadManagement
         public List<WorkItem> itemList { get; private set; }
 
         public TimeSpan totaltime { get; set; }
-        public List<string> workcodelist { get; set; }
         public Dictionary<string, TimeSpan> workcodetime { get; set; }
 
         public WorkDataList()

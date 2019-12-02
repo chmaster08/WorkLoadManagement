@@ -25,11 +25,4 @@ namespace WorkLoadManagement
         }
     }
 
-    public class WorkCode
-    {
-        public WorkCode()
-        {
-        }
-
-    }
 }

@@ -22,7 +22,7 @@ namespace WorkLoadManagement
             workCodeList.Add(item.workCode);
             
         }
-        public WorkDataList GetWorkCodeList()
+        public WorkDataList GetWorkDataList()
         {
             return WorkDataList;
         }

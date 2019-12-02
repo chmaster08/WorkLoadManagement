@@ -24,6 +24,7 @@ namespace WorkLoadManagement
         {
             InitializeComponent();
             myviewmodel = viewModel;
+            this.DataContext = myviewmodel;
         }
     }
 }

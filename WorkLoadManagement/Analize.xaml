@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Analize" Height="450" Width="800">
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="142" Margin="49,46,0,0" VerticalAlignment="Top" Width="294">
+        <ListView HorizontalAlignment="Left" Height="142" Margin="49,46,0,0" VerticalAlignment="Top" Width="294" ItemsSource="{Binding WorkDataList}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

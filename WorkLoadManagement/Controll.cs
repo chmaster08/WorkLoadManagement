@@ -23,6 +23,7 @@ namespace WorkLoadManagement
         }
 
         public List<string> WorkCodeList { get; set; }
+        public List<WorkItem> WorkDataList { get; set; }
 
 
         public void InitializeGetWorkItem()
@@ -30,6 +31,7 @@ namespace WorkLoadManagement
 
             
         }
+        
 
         public void SetWorkCodeToList(string item)
         {

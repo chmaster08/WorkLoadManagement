@@ -54,6 +54,15 @@ namespace WorkLoadManagement
         {
             dataController.Add(item);
         }
+        public void GetWorkDataList()
+        {
+            WorkDataList = new List<WorkItem>();
+            foreach(var item in workDataList.itemList)
+            {
+                WorkDataList.Add(item);
+            }
+
+        }
 
         public void Output()
         {

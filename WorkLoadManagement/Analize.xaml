@@ -7,10 +7,14 @@
         mc:Ignorable="d"
         Title="Analize" Height="450" Width="800">
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="142" Margin="49,46,0,0" VerticalAlignment="Top" Width="294" ItemsSource="{Binding WorkDataList}">
+        <ListView HorizontalAlignment="Left" Height="324" Margin="40,46,0,0" VerticalAlignment="Top" Width="315" ItemsSource="{Binding WorkDataList}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Path=CreateTime,StringFormat={}{0:yyyy/MM/dd}}" Width="80"/>
+                    <GridViewColumn Header="WorkCode" DisplayMemberBinding="{Binding Path=workCode}" Width="70"/>
+                    <GridViewColumn Header="Start" DisplayMemberBinding="{Binding Path=StartTime,StringFormat={}{0:HH:mm}}" Width="40"/>
+                    <GridViewColumn Header="End" DisplayMemberBinding="{Binding Path=EndTime,StringFormat={}{0:HH:mm}}" Width="40"/>
+                    <GridViewColumn Header="Comment" DisplayMemberBinding="{Binding Path=Comment}" Width="80"/>
                 </GridView>
             </ListView.View>
         </ListView>

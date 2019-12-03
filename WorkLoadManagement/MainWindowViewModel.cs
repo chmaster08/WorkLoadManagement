@@ -32,6 +32,7 @@ namespace WorkLoadManagement
         public void OpenDataView()
         {
             mycontrol.Output();
+            mycontrol.GetWorkDataList();
             AnalizeViewModel viewModel = new AnalizeViewModel(mycontrol);
             Analize view = new Analize(viewModel);
             view.Owner = Application.Current.MainWindow;

@@ -15,14 +15,24 @@ namespace WorkLoadManagement
         public AnalizeViewModel(Control control)
         {
             mycontrol = control;
+            workdatalist = new ObservableCollection<WorkItem>();
+            LoadWorkDataList();
         }
 
-        public void LoadWorkDataList()
+        private void LoadWorkDataList()
         {
+            foreach(var item in mycontrol.WorkDataList)
+            {
+                workdatalist.Add(item);
+            }
         }
 
         public ObservableCollection<WorkItem> WorkDataList
         {
+            get
+            {
+                return workdatalist;
+            }
             
         }
     }

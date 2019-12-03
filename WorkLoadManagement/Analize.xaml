@@ -4,10 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkLoadManagement"
+        xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
         Title="Analize" Height="450" Width="800">
-    <Grid>
-        <ListView HorizontalAlignment="Left" Height="324" Margin="40,46,0,0" VerticalAlignment="Top" Width="315" ItemsSource="{Binding WorkDataList}">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="324" Margin="40,46,0,0" VerticalAlignment="Top" Width="315" ItemsSource="{Binding WorkDataList}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Path=CreateTime,StringFormat={}{0:yyyy/MM/dd}}" Width="80"/>
@@ -18,5 +24,18 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <oxy:Plot Grid.Column="1" Background="White" Padding="5"
+                  PlotAreaBorderColor="Transparent"
+                  Title="サンプルグラフ" TitleColor="Black" TitlePadding="10"
+                  TextColor="Gray"  Margin="15,4,18,202">
+            <oxy:Plot.Series>
+                <oxy:LinearBarSeries ItemsSource="{Binding Datalist}"
+                                     StrokeColor="Blue" BarWidth="30" FillColor="Blue" Title="data" />
+            </oxy:Plot.Series>
+
+        </oxy:Plot>
+        <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="82,223,97,7" Grid.Column="1"/>
+
     </Grid>
 </Window>

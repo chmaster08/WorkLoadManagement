@@ -54,3 +54,14 @@ C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Deb
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\OxyPlot.Wpf.dll
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\OxyPlot.xml
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\OxyPlot.Wpf.xml
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\ControlzEx.dll
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\MahApps.Metro.dll
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\MaterialDesignColors.dll
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\ControlzEx.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\MahApps.Metro.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\MahApps.Metro.xml
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\MaterialDesignColors.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\MaterialDesignThemes.Wpf.xml

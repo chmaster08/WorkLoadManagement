@@ -67,6 +67,10 @@ namespace WorkLoadManagement
         {
             return WorkDataList.workcodetime[workcode];
         }
+        public Dictionary<string,TimeSpan> GetWorkCodeTimeList()
+        {
+            return WorkDataList.workcodetime;
+        }
 
         public virtual void Calc()
         {

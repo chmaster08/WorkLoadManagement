@@ -16,6 +16,7 @@ namespace WorkLoadManagement
         public WorkDataList()
         {
             itemList = new List<WorkItem>();
+            workcodetime = new Dictionary<string, TimeSpan>();
         }
 
         

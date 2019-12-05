@@ -33,6 +33,7 @@ namespace WorkLoadManagement
         {
             mycontrol.Output();
             mycontrol.GetWorkDataList();
+            mycontrol.AnalizeCalc();
             AnalizeViewModel viewModel = new AnalizeViewModel(mycontrol);
             Analize view = new Analize(viewModel);
             view.Owner = Application.Current.MainWindow;

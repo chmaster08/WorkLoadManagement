@@ -24,6 +24,13 @@ namespace WorkLoadManagement
 
         public List<string> WorkCodeList { get; set; }
         public List<WorkItem> WorkDataList { get; set; }
+        public WorkDataController WorkDataController
+        {
+            get
+            {
+                return dataController;
+            }
+        }
 
 
         public void InitializeGetWorkItem()
@@ -118,6 +125,11 @@ namespace WorkLoadManagement
 
             }
 
+        }
+        public void AnalizeCalc()
+        {
+            dataController.Calc();
+            //todo:monthly calcなどもここで実行
         }
 
         

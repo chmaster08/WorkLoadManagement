@@ -33,7 +33,7 @@ namespace WorkLoadManagement
         public void LoadGraphData()
         {
             Datalist = new List<DataPoint>();
-            _PlotModel = new PlotModel() { Title = "PieChart" };
+            _PlotModel = new PlotModel() { Title = "開発コードごとの工数" };
 
             Datalist.Add(new DataPoint(1, 2));
             Datalist.Add(new DataPoint(1, 2));
@@ -47,10 +47,12 @@ namespace WorkLoadManagement
                 StartAngle = 270,
             };
 
-            series.Slices.Add(new PieSlice("Hathor", 7508));
-            series.Slices.Add(new PieSlice("CM-CT1", 6125));
-            series.Slices.Add(new PieSlice("Other", 4346));
-            series.Slices.Add(new PieSlice("None", 1778));
+
+            var datalist = mycontrol.WorkDataController.GetWorkCodeTimeList();
+            foreach(var item in datalist)
+            {
+                series.Slices.Add(new PieSlice(item.Key, item.Value.TotalMinutes));
+            }
 
             _PlotModel.Series.Add(series);
 

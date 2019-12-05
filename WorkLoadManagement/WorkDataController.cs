@@ -75,7 +75,6 @@ namespace WorkLoadManagement
             {
                 WorkDataList.totaltime += item.GetWorkTime();
             }
-           //todo:コードごとの合算値
             foreach (var item in itemList)
             {
                 if (WorkDataList.workcodetime.ContainsKey(item.workCode))

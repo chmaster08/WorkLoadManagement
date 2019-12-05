@@ -16,7 +16,6 @@ namespace WorkLoadManagement
         private DateTime endtime;
         private string comment;
         private string newcode;
-        private TestList workcodeitem;
         private ObservableCollection<string> workcodelist;
         private string itemindex;
 

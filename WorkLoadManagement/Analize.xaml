@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkLoadManagement"
         xmlns:oxy="http://oxyplot.org/wpf"
-        xmlns:mahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Title="Analize" Height="450" Width="800">
     <Grid >
@@ -13,11 +12,14 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <ListView>
+            //todo:total listview
+        </ListView>
 
-        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="324" Margin="40,46,0,0" VerticalAlignment="Top" Width="315" ItemsSource="{Binding WorkDataList}">
+        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="200" Margin="40,0,0,30.0" VerticalAlignment="Bottom" Width="315" ItemsSource="{Binding WorkDataList}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Path=CreateTime,StringFormat={}{0:yyyy/MM/dd}}" Width="80"/>
+                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Path=CreateTime,StringFormat={}{0:yyyy/MM/dd}}" Width="75"/>
                     <GridViewColumn Header="WorkCode" DisplayMemberBinding="{Binding Path=workCode}" Width="70"/>
                     <GridViewColumn Header="Start" DisplayMemberBinding="{Binding Path=StartTime,StringFormat={}{0:HH:mm}}" Width="40"/>
                     <GridViewColumn Header="End" DisplayMemberBinding="{Binding Path=EndTime,StringFormat={}{0:HH:mm}}" Width="40"/>

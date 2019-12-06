@@ -133,6 +133,7 @@ namespace WorkLoadManagement
             set
             {
                 comment = value;
+                OnPropertyChanged("Comment");
             }
         }
 

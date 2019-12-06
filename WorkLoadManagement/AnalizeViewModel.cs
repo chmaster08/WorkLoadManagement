@@ -68,6 +68,7 @@ namespace WorkLoadManagement
         }
 
         public List<DataPoint> Datalist { get; set; }
-        public PlotModel _PlotModel { get; private set; } 
+        public PlotModel _PlotModel { get; private set; }
+        public TimeSpan TotalTime { get; set; }
     }
 }

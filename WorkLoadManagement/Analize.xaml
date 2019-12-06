@@ -13,7 +13,9 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <ListView>
-            //todo:total listview
+            <ListView Grid.Column="0" HorizontalAlignment="Left" Height="100" Margin="40,20,0,0" VerticalAlignment="Top" Width="315" ItemsSource="{Binding WorkDataList}">
+                
+            </ListView>
         </ListView>
 
         <ListView Grid.Column="0" HorizontalAlignment="Left" Height="200" Margin="40,0,0,30.0" VerticalAlignment="Bottom" Width="315" ItemsSource="{Binding WorkDataList}">

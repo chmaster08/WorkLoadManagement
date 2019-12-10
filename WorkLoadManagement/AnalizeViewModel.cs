@@ -30,6 +30,12 @@ namespace WorkLoadManagement
                 workdatalist.Add(item);
             }
         }
+
+        private void LoadMonthlyData()
+        {
+            //WorkDataListクラスがcontrollにないから追加
+            //できたらバインド
+        }
         public void LoadGraphData()
         {
             Datalist = new List<DataPoint>();
@@ -66,6 +72,8 @@ namespace WorkLoadManagement
             }
             
         }
+
+
 
         public List<DataPoint> Datalist { get; set; }
         public PlotModel _PlotModel { get; private set; }

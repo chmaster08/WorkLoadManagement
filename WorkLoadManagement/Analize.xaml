@@ -6,19 +6,21 @@
         xmlns:local="clr-namespace:WorkLoadManagement"
         xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
-        Title="Analize" Height="450" Width="800">
+        Title="Analize" Height="550" Width="800">
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListView>
-            <ListView Grid.Column="0" HorizontalAlignment="Left" Height="100" Margin="40,20,0,0" VerticalAlignment="Top" Width="315" ItemsSource="{Binding WorkDataList}">
-                
-            </ListView>
+        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="154" VerticalAlignment="Top" Width="362" ItemsSource="{Binding MonthlyWorkCodeTime}" Margin="18,60,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Code"></GridViewColumn>
+                </GridView>
+            </ListView.View>
         </ListView>
 
-        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="200" Margin="40,0,0,30.0" VerticalAlignment="Bottom" Width="315" ItemsSource="{Binding WorkDataList}">
+        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="150" Margin="40,0,0,30.0" VerticalAlignment="Bottom" Width="315" ItemsSource="{Binding WorkDataList}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Path=CreateTime,StringFormat={}{0:yyyy/MM/dd}}" Width="75"/>
@@ -33,14 +35,14 @@
         <oxy:Plot Grid.Column="1" Background="White" Padding="5"
                   PlotAreaBorderColor="Transparent"
                   Title="サンプルグラフ" TitleColor="Black" TitlePadding="10"
-                  TextColor="Gray"  Margin="15,4,18,202">
+                  TextColor="Gray"  Margin="15,322,18,16">
             <oxy:Plot.Series>
                 <oxy:LinearBarSeries ItemsSource="{Binding Datalist}"
                                      StrokeColor="Blue" BarWidth="30" FillColor="Blue" Title="data" />
             </oxy:Plot.Series>
 
         </oxy:Plot>
-        <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="82,223,97,7" Grid.Column="1"/>
+        <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="92,17,87,213" Grid.Column="1"/>
 
     </Grid>
 </Window>

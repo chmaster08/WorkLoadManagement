@@ -8,11 +8,19 @@ namespace WorkLoadManagement
 {
     public class WorkItem
     {
-        public WorkItem()
+        internal WorkItem(WorkItemBuilder builder)
         {
+            //作成時はこちらを使う
             CreateTime = DateTime.Now;
+            StartTime = builder.StartTime;
+            EndTime = builder.EndTime;
+            workCode = builder.workCode;
+            Comment = builder.Comment;
         }
-        public string Title {get;set;}
+        internal WorkItem()
+        {
+            //Output dataからの読み込み用
+        }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public DateTime CreateTime { get; set; }

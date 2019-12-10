@@ -26,7 +26,10 @@ namespace WorkLoadManagement
         {
             return WorkDataList;
         }
-       
+
+        
+
+
 
         public void ImportWorkData(WorkDataList itemlist)
         {
@@ -59,6 +62,7 @@ namespace WorkLoadManagement
         {
 
         }
+
         public TimeSpan GetTotalTime()
         {
             return WorkDataList.totaltime;
@@ -77,10 +81,11 @@ namespace WorkLoadManagement
             var itemList = WorkDataList.itemList;
             foreach (var item in itemList)
             {
+                string year = item.CreateTime.Year.ToString("yyyy");
+                string month = item.CreateTime.Month.ToString("MM");
+                string time = item.CreateTime.ToString("yyyy/MM");
+
                 WorkDataList.totaltime += item.GetWorkTime();
-            }
-            foreach (var item in itemList)
-            {
                 if (WorkDataList.workcodetime.ContainsKey(item.workCode))
                 {
                     WorkDataList.workcodetime[item.workCode] += item.GetWorkTime();
@@ -88,6 +93,14 @@ namespace WorkLoadManagement
                 else
                 {
                     WorkDataList.workcodetime.Add(item.workCode, item.GetWorkTime());
+                }
+                if(WorkDataList.MonthlyWorkCodeTime.ContainsKey((time, item.workCode)))
+                {
+                    WorkDataList.MonthlyWorkCodeTime[(time, item.workCode)] += item.GetWorkTime();
+                }
+                else
+                {
+                    WorkDataList.MonthlyWorkCodeTime.Add((time, item.workCode), item.GetWorkTime());
                 }
             }
         }

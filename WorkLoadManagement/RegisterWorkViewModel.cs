@@ -48,11 +48,14 @@ namespace WorkLoadManagement
         public void SetWorkData()
         {
             Check_value();
-            workitem = new WorkItem();
-            workitem.StartTime = starttime;
-            workitem.EndTime = endtime;
-            workitem.workCode = itemindex;
-            workitem.Comment = comment;
+            workitem = new WorkItemBuilder()
+            {
+                StartTime = starttime,
+                EndTime = endtime,
+                workCode=itemindex,
+                Comment=comment,
+
+            }.Build();
             mycontrol.SetWorkData(workitem);
         }
 

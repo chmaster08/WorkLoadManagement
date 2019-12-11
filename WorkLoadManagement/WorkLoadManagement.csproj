@@ -115,7 +115,6 @@
     <Compile Include="AnalizeViewModel.cs" />
     <Compile Include="IWorkDataList.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="MonthlyWorkDataController.cs" />
     <Compile Include="WorkCodeList.cs" />
     <Compile Include="WorkDataController.cs" />
     <Compile Include="WorkItem.cs" />

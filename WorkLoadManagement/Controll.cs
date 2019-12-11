@@ -31,6 +31,13 @@ namespace WorkLoadManagement
                 return dataController;
             }
         }
+        public WorkDataList cWorkDataList
+        {
+            get
+            {
+                return workDataList;
+            }
+        }
 
 
         public void InitializeGetWorkItem()

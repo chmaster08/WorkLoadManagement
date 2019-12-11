@@ -14,18 +14,21 @@ namespace WorkLoadManagement
     {
         private Control mycontrol;
         private ObservableCollection<WorkItem> workdatalist;
+        private ObservableCollection<Dictionary<string, TimeSpan>> Monthlydatalist;
 
         public AnalizeViewModel(Control control)
         {
             mycontrol = control;
             workdatalist = new ObservableCollection<WorkItem>();
+            Monthlydatalist = new ObservableCollection<Dictionary<string, TimeSpan>>();
             LoadWorkDataList();
+            LoadMonthlyData();
             LoadGraphData();
         }
 
         private void LoadWorkDataList()
         {
-            foreach(var item in mycontrol.WorkDataList)
+            foreach(var item in mycontrol.WorkDataList.itemList)
             {
                 workdatalist.Add(item);
             }
@@ -33,14 +36,20 @@ namespace WorkLoadManagement
 
         private void LoadMonthlyData()
         {
-            //WorkDataListクラスがcontrollにないから追加
+            string present = DateTime.Now.ToString("yyyy/MM");
+            var itemlist = mycontrol.WorkDataList.MonthlyWorkCodeTime.Where(item =>item.Key.time==present);
+            foreach (var item in itemlist)
+            {
+                Monthlydatalist.Add(new Dictionary<string, TimeSpan>(){ { item.Key.workcode, item.Value } });
+            }
+
             //できたらバインド
         }
         public void LoadGraphData()
         {
             Datalist = new List<DataPoint>();
             _PlotModel = new PlotModel() { Title = "開発コードごとの工数" };
-
+            //複数のバーのやつでコードごとの月別表示
             Datalist.Add(new DataPoint(1, 2));
             Datalist.Add(new DataPoint(1, 2));
             Datalist.Add(new DataPoint(2, 3));
@@ -71,6 +80,13 @@ namespace WorkLoadManagement
                 return workdatalist;
             }
             
+        }
+        public ObservableCollection<Dictionary<string,TimeSpan>> MonthlyWorkData
+        {
+            get
+            {
+                return Monthlydatalist;
+            }
         }
 
 

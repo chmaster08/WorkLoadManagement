@@ -32,7 +32,6 @@ namespace WorkLoadManagement
         public void OpenDataView()
         {
             mycontrol.Output();
-            mycontrol.GetWorkDataList();
             mycontrol.AnalizeCalc();
             AnalizeViewModel viewModel = new AnalizeViewModel(mycontrol);
             Analize view = new Analize(viewModel);

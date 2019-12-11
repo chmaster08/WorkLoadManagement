@@ -12,7 +12,7 @@ namespace WorkLoadManagement
 
         public TimeSpan totaltime { get; set; }
         public Dictionary<string, TimeSpan> workcodetime { get; set; }
-        public Dictionary<(string, string), TimeSpan> MonthlyWorkCodeTime { get; set; }
+        public Dictionary<(string time, string workcode), TimeSpan> MonthlyWorkCodeTime { get; set; }
 
         public WorkDataList()
         {

@@ -23,7 +23,6 @@ namespace WorkLoadManagement
         }
 
         public List<string> WorkCodeList { get; set; }
-        public List<WorkItem> WorkDataList { get; set; }
         public WorkDataController WorkDataController
         {
             get
@@ -31,12 +30,14 @@ namespace WorkLoadManagement
                 return dataController;
             }
         }
-        public WorkDataList cWorkDataList
+        public WorkDataList WorkDataList
         {
             get
             {
                 return workDataList;
             }
+            private set
+            { }
         }
 
 
@@ -67,15 +68,6 @@ namespace WorkLoadManagement
         public void SetWorkData(WorkItem item)
         {
             dataController.Add(item);
-        }
-        public void GetWorkDataList()
-        {
-            WorkDataList = new List<WorkItem>();
-            foreach(var item in workDataList.itemList)
-            {
-                WorkDataList.Add(item);
-            }
-
         }
 
         public void Output()

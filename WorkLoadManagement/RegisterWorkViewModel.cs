@@ -47,7 +47,6 @@ namespace WorkLoadManagement
 
         public void SetWorkData()
         {
-            Check_value();
             workitem = new WorkItemBuilder()
             {
                 StartTime = starttime,
@@ -59,16 +58,6 @@ namespace WorkLoadManagement
             mycontrol.SetWorkData(workitem);
         }
 
-        private void Check_value()
-        {
-            TimeSpan time = endtime - starttime;
-            if(time <= new TimeSpan(0))
-            {
-                //Error Dialog
-            }
-
-
-        }
 
         public ObservableCollection<string> WorkCodeList
         {

@@ -8,6 +8,7 @@
         
         mc:Ignorable="d"
         Title="Factory" Height="350" Width="400" ResizeMode="NoResize" ShowInTaskbar="False" >
+    
     <Grid>
         <Grid.Background>
             <SolidColorBrush Color="White"/>

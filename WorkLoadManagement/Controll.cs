@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization.Json;
 
 namespace WorkLoadManagement
 {
@@ -131,7 +132,20 @@ namespace WorkLoadManagement
             //todo:monthly calcなどもここで実行
         }
 
-        
+        static string Serialize<T>(T value)
+        {
+            var serializer = new DataContractJsonSerializer(typeof(T));
+            var serializedData = string.Empty;
+            using (var memoryStream = new MemoryStream())
+            {
+                serializer.WriteObject(memoryStream, value);
+                serializedData = Encoding.UTF8.GetString(memoryStream.ToArray());
+            }
+
+            return serializedData;
+        }
+
+
     }
 
     

@@ -20,10 +20,13 @@ namespace WorkLoadManagement
         {
             workCodeList = new WorkCodeList();
             workDataList = new WorkDataList();
+
             dataController = new WorkDataController(workDataList,workCodeList);
         }
 
         public List<string> WorkCodeList { get; set; }
+        public Dictionary<DateTime,TimeSpan> MonthlyWorkTime { get; set; }
+        public Dictionary<DateTime,TimeSpan> WeaklyWorkTime { get; set; }
         public WorkDataController WorkDataController
         {
             get

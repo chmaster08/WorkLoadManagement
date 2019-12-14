@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkLoadManagement"
         xmlns:oxy="http://oxyplot.org/wpf"
+        xmlns:wtk = "clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         mc:Ignorable="d"
         Title="Analize" Height="550" Width="800" ResizeMode="NoResize" ShowInTaskbar="False">
     <Grid >
@@ -12,7 +13,7 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Monthly WorkTime" FontSize="25" Grid.Column="0" HorizontalAlignment="Left" Margin="20,20,0,34"></TextBlock>
+        <TextBlock Text="{Binding Path=PresentMonth}" FontSize="20" Grid.Column="0" HorizontalAlignment="Left" Margin="20,20,0,34"></TextBlock>
         <ListView Grid.Column="0" HorizontalAlignment="Left" Height="154" VerticalAlignment="Top" Width="362" ItemsSource="{Binding MonthlyWorkData}" Margin="18,60,0,0">
             <ListView.View>
                 <GridView>
@@ -34,17 +35,8 @@
             </ListView.View>
         </ListView>
 
-        <oxy:Plot Grid.Column="1" Background="White" Padding="5"
-                  PlotAreaBorderColor="Transparent"
-                  Title="サンプルグラフ" TitleColor="Black" TitlePadding="10"
-                  TextColor="Gray"  Margin="15,322,18,16">
-            <oxy:Plot.Series>
-                <oxy:LinearBarSeries ItemsSource="{Binding Datalist}"
-                                     StrokeColor="Blue" BarWidth="30" FillColor="Blue" Title="data" />
-            </oxy:Plot.Series>
 
-        </oxy:Plot>
         <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="109,21,106,262" Grid.Column="1"/>
-
+        
     </Grid>
 </Window>

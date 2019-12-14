@@ -48,12 +48,7 @@ namespace WorkLoadManagement
         }
         public void LoadGraphData()
         {
-            Datalist = new List<DataPoint>();
             _PlotModel = new PlotModel() { Title = "開発コードごとの工数" };
-            //複数のバーのやつでコードごとの月別表示
-            Datalist.Add(new DataPoint(1, 2));
-            Datalist.Add(new DataPoint(1, 2));
-            Datalist.Add(new DataPoint(2, 3));
 
             var series = new OxyPlot.Series.PieSeries
             {
@@ -88,6 +83,13 @@ namespace WorkLoadManagement
             get
             {
                 return Monthlydatalist;
+            }
+        }
+        public string PresentMonth
+        {
+            get
+            {
+                return DateTime.Now.ToString("yyyy/MM");
             }
         }
 

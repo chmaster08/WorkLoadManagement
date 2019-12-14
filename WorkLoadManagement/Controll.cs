@@ -51,8 +51,7 @@ namespace WorkLoadManagement
                 return monthlyWorkCodeTimes;
             }
         }
-
-
+       
 
         public void InitializeGetWorkItem()
         {

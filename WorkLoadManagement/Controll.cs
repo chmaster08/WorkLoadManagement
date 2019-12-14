@@ -13,36 +13,45 @@ namespace WorkLoadManagement
     {
         private WorkDataList workDataList;
         private WorkCodeList workCodeList;
-        private WorkDataController dataController;
+        private List<MonthlyWorkCodeTime> monthlyWorkCodeTimes;
+        private string codepath = @"C:\Users\" + Environment.UserName + @"\CodeOutput.data";
+        private string datapath = @"C:\Users\" + Environment.UserName + @"\DataOutput.data";
 
 
         public Control()
         {
             workCodeList = new WorkCodeList();
             workDataList = new WorkDataList();
-
-            dataController = new WorkDataController(workDataList,workCodeList);
+            monthlyWorkCodeTimes = new List<MonthlyWorkCodeTime>();
         }
 
-        public List<string> WorkCodeList { get; set; }
+        
         public Dictionary<DateTime,TimeSpan> MonthlyWorkTime { get; set; }
         public Dictionary<DateTime,TimeSpan> WeaklyWorkTime { get; set; }
-        public WorkDataController WorkDataController
-        {
-            get
-            {
-                return dataController;
-            }
-        }
+        
         public WorkDataList WorkDataList
         {
             get
             {
                 return workDataList;
             }
-            private set
-            { }
+            
         }
+        public WorkCodeList WorkCodeList
+        {
+            get
+            {
+                return workCodeList;
+            }
+        }
+        public List<MonthlyWorkCodeTime> MonthlyWorkCodeTimes
+        {
+            get
+            {
+                return monthlyWorkCodeTimes;
+            }
+        }
+
 
 
         public void InitializeGetWorkItem()
@@ -60,18 +69,17 @@ namespace WorkLoadManagement
             }
         }
 
-        public void GetWorkCodeList()
-        {
-            WorkCodeList = new List<string>();
-            foreach(var item in workCodeList.workCodeList)
-            {
-                WorkCodeList.Add(item);
-            }
-        }
 
         public void SetWorkData(WorkItem item)
         {
-            dataController.Add(item);
+            workDataList.itemList.Add(item);
+            workCodeList.Add(item.workCode);
+
+        }
+        public void AnalizeCalc()
+        {
+            MonthlyCalc();
+            //todo:monthly calcなどもここで実行
         }
 
         public void Output()
@@ -79,13 +87,35 @@ namespace WorkLoadManagement
             OutputWorkData();
             OutputWorkCode();
         }
+        public void Input()
+        {
+            InputWorkData();
+            InputWorkCode();
+
+        }
+        private void ImportWorkData(WorkDataList itemlist)
+        {
+            foreach (var item in itemlist.itemList)
+            {
+                workDataList.itemList.Add(item);
+            }
+        }
+
+        private void ImportWorkCode(WorkCodeList itemlist)
+        {
+            foreach (var item in itemlist.workCodeList)
+            {
+                workCodeList.Add(item);
+            }
+        }
+
 
         private void OutputWorkData()
         {
             try
             {
                 string output = JsonConvert.SerializeObject(workDataList);
-                File.WriteAllText(@"C:\Users\e13498\WorkOutput.data", output);
+                File.WriteAllText(datapath, output);
             }
             catch 
             { }
@@ -95,58 +125,45 @@ namespace WorkLoadManagement
             try
             {
                 string output = JsonConvert.SerializeObject(workCodeList);
-                File.WriteAllText(@"C:\Users\e13498\CodeOutput.data", output);
+                File.WriteAllText(codepath, output);
             }
             catch
             { }
         }
 
-        public void Input()
-        {
-            InputWorkData();
-            InputWorkCode();
-
-        }
+        
         private void InputWorkData()
         {
-            if (File.Exists(@"C:\Users\e13498\WorkOutput.data"))
+            if (File.Exists(datapath))
             {
-                string input = File.ReadAllText(@"C:\Users\e13498\WorkOutput.data");
+                string input = File.ReadAllText(datapath);
                 var deserialized = JsonConvert.DeserializeObject<WorkDataList>(input);
-                dataController.ImportWorkData(deserialized);
+                ImportWorkData(deserialized);
 
             }
 
         }
         private void InputWorkCode()
         {
-            if (File.Exists(@"C:\Users\e13498\CodeOutput.data"))
+            if (File.Exists(codepath))
             {
-                string input = File.ReadAllText(@"C:\Users\e13498\CodeOutput.data");
+                string input = File.ReadAllText(codepath);
                 var deserialized = JsonConvert.DeserializeObject<WorkCodeList>(input);
-                dataController.ImportWorkCode(deserialized);
+                ImportWorkCode(deserialized);
 
             }
 
         }
-        public void AnalizeCalc()
-        {
-            dataController.Calc();
-            //todo:monthly calcなどもここで実行
-        }
 
-        static string Serialize<T>(T value)
+        private void MonthlyCalc()
         {
-            var serializer = new DataContractJsonSerializer(typeof(T));
-            var serializedData = string.Empty;
-            using (var memoryStream = new MemoryStream())
+            var mycontroller = new MonthlyWorkCodeController(monthlyWorkCodeTimes);
+            foreach(var item in workDataList.itemList)
             {
-                serializer.WriteObject(memoryStream, value);
-                serializedData = Encoding.UTF8.GetString(memoryStream.ToArray());
+                mycontroller.Add(item);
             }
-
-            return serializedData;
         }
+        
 
 
     }

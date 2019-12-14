@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\
+C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\
 WorkLoadManagement
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 41654451236
 
-20-1133758695
-302080805972
+17-381268394
+30-1435266917
 Analize.xaml;App.xaml;MainWindow.xaml;RegisterWork.xaml;
 
-True
+False
 

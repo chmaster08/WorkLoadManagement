@@ -31,7 +31,6 @@ namespace WorkLoadManagement
 
         private void Initialize()
         {
-            mycontrol.GetWorkCodeList();
             LoadWorkCode();
             starttime = DateTime.Now;
             endtime = DateTime.Now;
@@ -39,9 +38,9 @@ namespace WorkLoadManagement
 
         private void LoadWorkCode()
         {
-            for(int i=0;i<mycontrol.WorkCodeList.Count;i++)
+            foreach(var item in mycontrol.WorkCodeList.workCodeList)
             {
-                workcodelist.Add(mycontrol.WorkCodeList[i]);
+                workcodelist.Add(item);
             }
         }
 

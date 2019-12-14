@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WorkCodeTIme.cs" />
     <Compile Include="WorkItemBuilder.cs" />
     <Page Include="Analize.xaml">
       <SubType>Designer</SubType>
@@ -117,7 +118,6 @@
     <Compile Include="IWorkDataList.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="WorkCodeList.cs" />
-    <Compile Include="WorkDataController.cs" />
     <Compile Include="WorkItem.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -133,8 +133,6 @@
       <DependentUpon>RegisterWork.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegisterWorkViewModel.cs" />
-    <Compile Include="Test.cs" />
-    <Compile Include="TestList.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

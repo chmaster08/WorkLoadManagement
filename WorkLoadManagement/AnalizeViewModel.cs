@@ -36,11 +36,12 @@ namespace WorkLoadManagement
 
         private void LoadMonthlyData()
         {
-            string present = DateTime.Now.ToString("yyyy/MM");
-            var itemlist = mycontrol.WorkDataList.MonthlyWorkCodeTime.Where(item =>item.Key.time==present);
+
+            DateTime present = DateTime.Now;
+            var itemlist = mycontrol.MonthlyWorkCodeTimes.Where(x => x.Year == present.Year & x.Month == present.Month);
             foreach (var item in itemlist)
             {
-                Monthlydatalist.Add(new Dictionary<string, TimeSpan>(){ { item.Key.workcode, item.Value } });
+                Monthlydatalist.Add(new Dictionary<string, TimeSpan>(){ { item.WorkCode, item.WorkTime } });
             }
 
             //できたらバインド
@@ -61,12 +62,13 @@ namespace WorkLoadManagement
                 AngleSpan = 360,
                 StartAngle = 270,
             };
+            DateTime present = DateTime.Now;
 
+            var itemlist = mycontrol.MonthlyWorkCodeTimes.Where(x => x.Year == present.Year & x.Month == present.Month);
 
-            var datalist = mycontrol.WorkDataController.GetWorkCodeTimeList();
-            foreach(var item in datalist)
+            foreach(var item in itemlist)
             {
-                series.Slices.Add(new PieSlice(item.Key, item.Value.TotalMinutes));
+                series.Slices.Add(new PieSlice(item.WorkCode, item.WorkTime.TotalMinutes));
             }
 
             _PlotModel.Series.Add(series);

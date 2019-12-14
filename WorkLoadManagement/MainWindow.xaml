@@ -4,10 +4,51 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkLoadManagement"
+        xmlns:mahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Factory" Height="350" Width="400" ResizeMode="NoResize" ShowInTaskbar="False" >
     <Grid>
-        <DataGrid ItemsSource="{Binding Path=Data}" x:Name="dataGrid" HorizontalAlignment="Left" Height="100" Margin="392,160,0,0" VerticalAlignment="Top" Width="100"/>
-
+        <Grid.Background>
+            <SolidColorBrush Color="White"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock
+            x:Name="titlecall"
+            Text="Please Select Menu."
+            Grid.Row="1"
+            Grid.Column="1"
+            FontSize="24"
+            HorizontalAlignment="Center"
+            >
+        </TextBlock>
+        <Button
+            Content="Register Work"
+            Click="BtnNew_Click"
+            HorizontalAlignment="Left"
+            Grid.Column="1"
+            Grid.Row="3"
+            Margin="10,10,10,10" Width="124"
+            ></Button>
+        <Button
+            Content="Analize"
+            Click="BtnData_Click"
+            HorizontalAlignment="Right"
+            Grid.Column="1"
+            Grid.Row="3"
+            Margin="10,10,10,10" Width="124"
+            />
     </Grid>
+
 </Window>

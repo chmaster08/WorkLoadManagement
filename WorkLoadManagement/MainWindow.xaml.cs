@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +22,25 @@ namespace WorkLoadManagement
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        MainWindowViewModel myViewModel;
+
+
+        public MainWindow(MainWindowViewModel viewModel)
         {
             InitializeComponent();
-            this.DataContext = new TestList();
+            myViewModel = viewModel;
+            this.DataContext =myViewModel;
+        }
+
+        private void BtnNew_Click(object sender,RoutedEventArgs e)
+        {
+            myViewModel.OpenNewWorkView();
+
+        }
+
+        private void BtnData_Click(object sender,RoutedEventArgs e)
+        {
+            myViewModel.OpenDataView();
         }
     }
 }

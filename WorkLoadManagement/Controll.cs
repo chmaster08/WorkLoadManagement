@@ -29,6 +29,7 @@ namespace WorkLoadManagement
             workDataList = new WorkDataList();
             monthlyWorkCodeTimes = new List<MonthlyWorkCodeTime>();
             AWSSetting();
+            GetItemFromAWS();
         }
 
         
@@ -124,6 +125,54 @@ namespace WorkLoadManagement
             document["workCode"] = item.workCode;
             document["Comment"] = item.Comment;
             table.PutItem(document);
+
+        }
+
+        public void GetItemFromAWS()
+        {
+            var table = Amazon.DynamoDBv2.DocumentModel.Table.LoadTable(client, "WorkItemList");
+            var search = table.Scan(new Amazon.DynamoDBv2.DocumentModel.Expression());
+            var documentlist = new List<Document>();
+            do
+            {
+                documentlist.AddRange(search.GetNextSet());
+            } while (!search.IsDone);
+
+            foreach(var doc in documentlist)
+            {
+                var item = new WorkItem();
+                foreach(var attr in doc.GetAttributeNames())
+                {
+                    var value = doc[attr];
+                    if (attr == "StartTime")
+                    {
+                        item.StartTime =DateTime.Parse(doc[attr]) ;
+                    }
+                    else if (attr == "EndTime")
+                    {
+                        item.EndTime = DateTime.Parse(doc[attr]);
+                    }
+                    else if (attr == "workCode")
+                    {
+                        item.workCode = doc[attr];
+                    }
+                    else if (attr == "Comment")
+                    {
+                        item.Comment = doc[attr];
+                    }
+                    else if(attr == "CreateTime")
+                    {
+                        item.CreateTime = DateTime.Parse(doc[attr]);
+                    }
+                    else if(attr=="ID")
+                    {
+                        item.ID = Guid.Parse(doc[attr]);
+                    }
+
+                }
+                SetWorkData(item);
+            }
+
 
         }
         private void CreateTables()

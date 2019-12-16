@@ -17,7 +17,8 @@ namespace WorkLoadManagement
         public MainWindowViewModel(Control control)
         {
             mycontrol = control;
-            mycontrol.Input();
+            //local test用
+            //mycontrol.Input();
         }
 
         public void OpenNewWorkView()
@@ -31,7 +32,8 @@ namespace WorkLoadManagement
 
         public void OpenDataView()
         {
-            mycontrol.Output();
+            //local test用
+            //mycontrol.Output();
             mycontrol.AnalizeCalc();
             AnalizeViewModel viewModel = new AnalizeViewModel(mycontrol);
             Analize view = new Analize(viewModel);

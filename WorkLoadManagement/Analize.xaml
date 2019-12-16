@@ -7,14 +7,16 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:wtk = "clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         mc:Ignorable="d"
-        Title="Analize" Height="550" Width="800" ResizeMode="NoResize" ShowInTaskbar="False">
+        Title="Analize" Height="450" Width="600" ResizeMode="NoResize" ShowInTaskbar="False">
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="{Binding Path=PresentMonth}" FontSize="20" Grid.Column="0" HorizontalAlignment="Left" Margin="20,20,0,34"></TextBlock>
-        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="154" VerticalAlignment="Top" Width="362" ItemsSource="{Binding MonthlyWorkData}" Margin="18,60,0,0">
+        <TextBlock Text="{Binding Path=PresentMonth}" FontSize="18" Grid.Column="0" HorizontalAlignment="Left" Margin="20,20,0,34"></TextBlock>
+        <TextBlock Text="の開発コード別工数" FontSize="15" Grid.Column="0" HorizontalAlignment="Left" Margin="90,22,0,34"></TextBlock>
+
+        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="154" VerticalAlignment="Top" Width="199" ItemsSource="{Binding MonthlyWorkData}" Margin="20,49,0,0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="WorkCode" DisplayMemberBinding="{Binding Path=Key}" Width="100"/>
@@ -22,8 +24,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBlock Text="全工数" FontSize="15" Grid.Column="1" HorizontalAlignment="Left" Margin="90,22,0,34"></TextBlock>
 
-        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="150" Margin="40,0,0,30.0" VerticalAlignment="Bottom" Width="315" ItemsSource="{Binding WorkDataList}">
+        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="156" Margin="261,0,0,207" VerticalAlignment="Bottom" Width="312" ItemsSource="{Binding WorkDataList}" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Path=StartTime,StringFormat={}{0:yyyy/MM/dd}}" Width="75"/>
@@ -36,7 +39,7 @@
         </ListView>
 
 
-        <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="109,21,106,262" Grid.Column="1"/>
-        
+        <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="214,224,213,11" Grid.ColumnSpan="2"/>
+
     </Grid>
 </Window>

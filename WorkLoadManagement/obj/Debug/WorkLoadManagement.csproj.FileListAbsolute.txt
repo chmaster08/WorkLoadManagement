@@ -109,3 +109,5 @@ C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManage
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csproj.CopyComplete
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml

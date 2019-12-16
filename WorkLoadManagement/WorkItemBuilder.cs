@@ -25,6 +25,10 @@ namespace WorkLoadManagement
             {
                 throw new ArgumentNullException("WorkCode Null");
             }
+            if(Comment==null)
+            {
+                Comment = string.Empty;
+            }
 
             return new WorkItem(this);
         }

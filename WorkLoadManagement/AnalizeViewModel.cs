@@ -19,7 +19,6 @@ namespace WorkLoadManagement
         public AnalizeViewModel(Control control)
         {
             mycontrol = control;
-            workdatalist = new ObservableCollection<WorkItem>();
             Monthlydatalist = new ObservableCollection<Dictionary<string, TimeSpan>>();
             LoadWorkDataList();
             LoadMonthlyData();
@@ -28,10 +27,12 @@ namespace WorkLoadManagement
 
         private void LoadWorkDataList()
         {
+            var nonOrderdList = new ObservableCollection<WorkItem>();
             foreach(var item in mycontrol.WorkDataList.itemList)
             {
-                workdatalist.Add(item);
+                nonOrderdList.Add(item);
             }
+            workdatalist = new ObservableCollection<WorkItem>(nonOrderdList.OrderByDescending(n=>n.StartTime));
         }
 
         private void LoadMonthlyData()

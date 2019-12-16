@@ -47,7 +47,6 @@ C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Deb
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.pdb
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\Newtonsoft.Json.dll
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\Newtonsoft.Json.xml
-C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csprojAssemblyReference.cache
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\Analize.g.cs
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\Analize.baml
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\OxyPlot.dll
@@ -111,3 +110,10 @@ C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManage
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.Core.dll
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.DynamoDBv2.dll
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.Core.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.Core.xml
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.DynamoDBv2.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.DynamoDBv2.xml
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csprojAssemblyReference.cache

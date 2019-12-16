@@ -16,11 +16,13 @@ namespace WorkLoadManagement
             EndTime = builder.EndTime;
             workCode = builder.workCode;
             Comment = builder.Comment;
+            ID = Guid.NewGuid();
         }
         internal WorkItem()
         {
             //Output dataからの読み込み用
         }
+        public Guid ID { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public DateTime CreateTime { get; set; }

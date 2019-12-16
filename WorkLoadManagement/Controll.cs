@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization.Json;
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.Model;
+using Amazon.DynamoDBv2.DocumentModel;
+using Amazon;
 
 namespace WorkLoadManagement
 {
@@ -14,6 +18,7 @@ namespace WorkLoadManagement
         private WorkDataList workDataList;
         private WorkCodeList workCodeList;
         private List<MonthlyWorkCodeTime> monthlyWorkCodeTimes;
+        private AmazonDynamoDBClient client;
         private string codepath = @"C:\Users\" + Environment.UserName + @"\CodeOutput.data";
         private string datapath = @"C:\Users\" + Environment.UserName + @"\DataOutput.data";
 
@@ -23,6 +28,7 @@ namespace WorkLoadManagement
             workCodeList = new WorkCodeList();
             workDataList = new WorkDataList();
             monthlyWorkCodeTimes = new List<MonthlyWorkCodeTime>();
+            AWSSetting();
         }
 
         
@@ -91,6 +97,85 @@ namespace WorkLoadManagement
             InputWorkData();
             InputWorkCode();
 
+        }
+
+        public void AWSSetting()
+        {
+            try
+            {
+                client = new AmazonDynamoDBClient(RegionEndpoint.USEast2);
+                CreateTables();
+
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("AWS Client Error:"+ex.Message);
+            }
+
+        }
+        public void AddWorkItemToAWS(WorkItem item)
+        {
+            var table = Amazon.DynamoDBv2.DocumentModel.Table.LoadTable(client, "WorkItemList");
+            Document document = new Document();
+            document["ID"] = item.ID;
+            document["StartTime"] = item.StartTime;
+            document["EndTime"] = item.EndTime;
+            document["CreateTime"] = item.CreateTime;
+            document["workCode"] = item.workCode;
+            document["Comment"] = item.Comment;
+            table.PutItem(document);
+
+        }
+        private void CreateTables()
+        {
+            List<string> currentTables = client.ListTables().TableNames;
+            if(!currentTables.Contains("WorkItemList"))
+            {
+                CreateTableRequest createTableRequest = new CreateTableRequest
+                {
+                    TableName = "WorkItemList",
+                    AttributeDefinitions = new List<AttributeDefinition>()
+                {
+                    new AttributeDefinition
+                    {
+                        AttributeName = "Id",
+                        AttributeType = "N"
+                    },
+                    new AttributeDefinition
+                    {
+                        AttributeName = "Name",
+                        AttributeType = "S"
+                    }
+                },
+                    KeySchema = new List<KeySchemaElement>()
+                {
+                    new KeySchemaElement
+                    {
+                        AttributeName = "Id",
+                        KeyType = "HASH"
+                    },
+                    new KeySchemaElement
+                    {
+                        AttributeName = "Name",
+                        KeyType = "RANGE"
+                    }
+                },
+
+                };
+                createTableRequest.ProvisionedThroughput = new ProvisionedThroughput(1, 1);
+
+                CreateTableResponse createResponse;
+                try
+                {
+                    createResponse = client.CreateTable(createTableRequest);
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine("Error: failed to create the new table; " + ex.Message);
+
+                    return;
+                }
+            }
         }
         private void ImportWorkData(WorkDataList itemlist)
         {

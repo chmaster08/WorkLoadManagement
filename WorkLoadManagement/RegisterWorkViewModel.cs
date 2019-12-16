@@ -56,6 +56,7 @@ namespace WorkLoadManagement
 
             }.Build();
             mycontrol.SetWorkData(workitem);
+            mycontrol.AddWorkItemToAWS(workitem);
         }
 
         private void Check_value()

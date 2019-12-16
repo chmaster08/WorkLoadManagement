@@ -32,8 +32,8 @@ namespace WorkLoadManagement
 
         public void OpenDataView()
         {
-            //local test用
-            //mycontrol.Output();
+            //localに一応保存。次回にデータベースと差異がある場合更新
+            mycontrol.Output();
             mycontrol.AnalizeCalc();
             AnalizeViewModel viewModel = new AnalizeViewModel(mycontrol);
             Analize view = new Analize(viewModel);

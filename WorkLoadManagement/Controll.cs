@@ -28,8 +28,16 @@ namespace WorkLoadManagement
             workCodeList = new WorkCodeList();
             workDataList = new WorkDataList();
             monthlyWorkCodeTimes = new List<MonthlyWorkCodeTime>();
-            AWSSetting();
-            GetItemFromAWS();
+            try
+            {
+                AWSSetting();
+                GetItemFromAWS();
+            }
+            catch(Exception ex)
+            {
+                Input();
+                throw new Exception(ex.Message);
+            }
         }
 
         
@@ -85,7 +93,6 @@ namespace WorkLoadManagement
         public void AnalizeCalc()
         {
             MonthlyCalc();
-            //todo:monthly calcなどもここで実行
         }
 
         public void Output()
@@ -105,7 +112,7 @@ namespace WorkLoadManagement
             try
             {
                 client = new AmazonDynamoDBClient(RegionEndpoint.USEast2);
-                CreateTables();
+                //CreateTables();
 
             }
             catch(Exception ex)

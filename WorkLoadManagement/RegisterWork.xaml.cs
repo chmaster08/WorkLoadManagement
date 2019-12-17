@@ -29,8 +29,10 @@ namespace WorkLoadManagement
 
         private void BtnOKClick(object sender,RoutedEventArgs e)
         {
-
+            Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
             myViewModel.SetWorkData();
+            Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
+
             this.Close();
         }
 

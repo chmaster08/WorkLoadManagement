@@ -40,7 +40,8 @@ namespace WorkLoadManagement
 
             DateTime present = DateTime.Now;
             var itemlist = mycontrol.MonthlyWorkCodeTimes.Where(x => x.Year == present.Year & x.Month == present.Month);
-            foreach (var item in itemlist)
+            var orderedlist = itemlist.OrderByDescending(x => x.WorkTime);
+            foreach (var item in orderedlist)
             {
                 Monthlydatalist.Add(new Dictionary<string, TimeSpan>(){ { item.WorkCode, item.WorkTime } });
             }

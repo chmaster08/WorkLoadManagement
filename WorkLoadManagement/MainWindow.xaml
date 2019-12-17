@@ -7,7 +7,7 @@
         xmlns:mahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         
         mc:Ignorable="d"
-        Title="Factory" Height="350" Width="400" ResizeMode="NoResize" ShowInTaskbar="False" >
+        Title="WorkTimeManager" Height="250" Width="370" ResizeMode="NoResize" ShowInTaskbar="False" >
     <Grid>
         <Grid.Background>
             <SolidColorBrush Color="White"/>
@@ -20,17 +20,28 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1.5*"></RowDefinition>
-            <RowDefinition Height="4*"></RowDefinition>
-            <RowDefinition Height="1.5*"></RowDefinition>
-            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock
             x:Name="titlecall"
-            Text="Please Select Menu."
+            Text="WorkTimeManager"
             Grid.Row="1"
             Grid.Column="1"
             FontSize="24"
             HorizontalAlignment="Center"
+            >
+        </TextBlock>
+        <TextBlock
+            x:Name="guide"
+            Text="Please Select Menu"
+            Grid.Row="2"
+            Grid.Column="1"
+            FontSize="15"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Margin="0,0,0,40"
             >
         </TextBlock>
         <Button

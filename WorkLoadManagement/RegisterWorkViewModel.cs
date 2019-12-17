@@ -69,6 +69,12 @@ namespace WorkLoadManagement
 
 
         }
+        public void RefreshEndTime()
+        {
+            endtime = DateTime.Now;
+            OnPropertyChanged("EndTime");
+
+        }
 
         public ObservableCollection<string> WorkCodeList
         {
@@ -124,6 +130,8 @@ namespace WorkLoadManagement
             set
             {
                 endtime = value;
+                OnPropertyChanged("EndTime");
+
             }
         }
 

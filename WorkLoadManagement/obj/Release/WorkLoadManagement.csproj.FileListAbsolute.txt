@@ -43,7 +43,6 @@ C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Rel
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Release\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Release\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Release\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Release\WorkLoadManagement.csprojAssemblyReference.cache
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Release\Analize.g.cs
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Release\App.g.cs
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Release\MainWindow.g.cs

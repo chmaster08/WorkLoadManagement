@@ -41,8 +41,9 @@ namespace WorkLoadManagement
             this.Close();
         }
 
-        private void BtnNewWorkCode(object sender, RoutedEventArgs e)
+        private void BtnGetPresentTime(object sender, RoutedEventArgs e)
         {
+            myViewModel.RefreshEndTime();
             //WorkCode 新規追加
         }
     }

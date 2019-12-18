@@ -19,6 +19,7 @@ namespace WorkLoadManagement
         private WorkCodeList workCodeList;
         private List<MonthlyWorkCodeTime> monthlyWorkCodeTimes;
         private AmazonDynamoDBClient client;
+        private bool isConnectableToAWS=false;
         private string codepath = @"C:\Users\" + Environment.UserName + @"\CodeOutput.data";
         private string datapath = @"C:\Users\" + Environment.UserName + @"\DataOutput.data";
 
@@ -32,6 +33,7 @@ namespace WorkLoadManagement
             {
                 AWSSetting();
                 GetItemFromAWS();
+                isConnectableToAWS = true;
             }
             catch(Exception ex)
             {

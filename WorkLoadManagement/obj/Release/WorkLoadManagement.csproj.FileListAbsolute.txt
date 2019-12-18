@@ -122,3 +122,4 @@ C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManage
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Release\WorkLoadManagement.csproj.CopyComplete
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Release\WorkLoadManagement.exe
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\obj\Release\WorkLoadManagement.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Release\WorkLoadManagement.csprojAssemblyReference.cache

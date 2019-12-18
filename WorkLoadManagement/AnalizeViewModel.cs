@@ -14,12 +14,12 @@ namespace WorkLoadManagement
     {
         private Control mycontrol;
         private ObservableCollection<WorkItem> workdatalist;
-        private ObservableCollection<Dictionary<string, TimeSpan>> Monthlydatalist;
+        private ObservableCollection<Dictionary<string, string>> Monthlydatalist;
 
         public AnalizeViewModel(Control control)
         {
             mycontrol = control;
-            Monthlydatalist = new ObservableCollection<Dictionary<string, TimeSpan>>();
+            Monthlydatalist = new ObservableCollection<Dictionary<string, string>>();
             LoadWorkDataList();
             LoadMonthlyData();
             LoadGraphData();
@@ -43,7 +43,11 @@ namespace WorkLoadManagement
             var orderedlist = itemlist.OrderByDescending(x => x.WorkTime);
             foreach (var item in orderedlist)
             {
-                Monthlydatalist.Add(new Dictionary<string, TimeSpan>(){ { item.WorkCode, item.WorkTime } });
+                string minutes = item.WorkTime.Minutes.ToString();
+                if (minutes.Length == 1) minutes = '0' + minutes;
+                string hours = (item.WorkTime.Days * 24 + item.WorkTime.Hours).ToString();
+                string time = hours + ":" + minutes;
+                Monthlydatalist.Add(new Dictionary<string, string>(){ { item.WorkCode, time } });
             }
 
             //できたらバインド
@@ -61,11 +65,10 @@ namespace WorkLoadManagement
             };
             DateTime present = DateTime.Now;
 
-            var itemlist = mycontrol.MonthlyWorkCodeTimes.Where(x => x.Year == present.Year & x.Month == present.Month);
 
-            foreach(var item in itemlist)
+            foreach(var item in mycontrol.MonthlyWorkCodeTimes)
             {
-                series.Slices.Add(new PieSlice(item.WorkCode, item.WorkTime.TotalMinutes));
+                series.Slices.Add(new PieSlice(item.WorkCode,item.WorkTime.TotalMinutes));
             }
 
             _PlotModel.Series.Add(series);
@@ -80,7 +83,7 @@ namespace WorkLoadManagement
             }
             
         }
-        public ObservableCollection<Dictionary<string,TimeSpan>> MonthlyWorkData
+        public ObservableCollection<Dictionary<string,string>> MonthlyWorkData
         {
             get
             {

@@ -50,44 +50,21 @@ namespace WorkLoadManagement
             }
             var comp = new ListCompetetor();
             bool IsEqual = AWSlist.SequenceEqual(Locallist,comp);
-            var AWSminusLocal = AWSlist.Except(Locallist);
-            var LocalminusAWS = Locallist.Except(AWSlist);
-            if(AWSminusLocal.Any())
+            
+            if (!IsEqual)
             {
-                foreach(var item in LocalminusAWS)
+                var LocalminusAWS = Locallist.Except(AWSlist, comp);
+                if(LocalminusAWS.Any())
                 {
-                    if (!AWSlist.Contains(item)) 
-                    {
-                        AWSlist.Add(item);
-                        mycontrol.AddWorkItemToAWS(item);
-                    }
-                }
-                foreach(var item in AWSlist)
-                {
-                    mycontrol.SetWorkData(item);
+                    AWSlist.AddRange(LocalminusAWS);
                 }
 
-            }
-            else if(LocalminusAWS.Any())
-            {
-                foreach(var item in AWSminusLocal)
-                {
-                    if (!Locallist.Contains(item)) Locallist.Add(item);
-                }
-                foreach(var item in Locallist)
-                {
-                    mycontrol.SetWorkData(item);
-                }
-            }
-            else
-            {
-                foreach (var item in AWSlist)
-                {
-                    mycontrol.SetWorkData(item);
-                }
 
             }
-
+            foreach (var item in AWSlist)
+            {
+                mycontrol.SetWorkData(item);
+            }
         }
 
         private List<WorkItem> ImportDataFromAWS()

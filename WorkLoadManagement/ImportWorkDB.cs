@@ -45,6 +45,9 @@ namespace WorkLoadManagement
             }
             catch
             {
+                Warning view = new Warning(new List<string>() {"AWS Connection Error"});
+                view.Owner = System.Windows.Application.Current.MainWindow;
+                view.ShowDialog();
                 AWSlist = new List<WorkItem>();
                 Locallist = new List<WorkItem>();
             }

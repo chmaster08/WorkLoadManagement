@@ -46,7 +46,7 @@ namespace WorkLoadManagement
 
         public void SetWorkData()
         {
-            Check_value();
+            List<string> errormsgList;
             workitem = new WorkItemBuilder()
             {
                 StartTime = starttime,
@@ -54,21 +54,15 @@ namespace WorkLoadManagement
                 workCode=itemindex,
                 Comment=comment,
 
-            }.Build();
+            }.Build(out errormsgList);
+            if(errormsgList.Any())
+            {
+                Warning view = new Warning(errormsgList);
+            }
             mycontrol.SetWorkData(workitem);
             mycontrol.AddWorkItemToAWS(workitem);
         }
 
-        private void Check_value()
-        {
-            TimeSpan time = endtime - starttime;
-            if(time <= new TimeSpan(0))
-            {
-                //Error Dialog
-            }
-
-
-        }
         public void RefreshEndTime()
         {
             endtime = DateTime.Now;

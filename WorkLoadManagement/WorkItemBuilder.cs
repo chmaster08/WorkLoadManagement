@@ -15,14 +15,17 @@ namespace WorkLoadManagement
         public string workCode { get; set; }
         public string Comment { get; set; }
 
-        public WorkItem Build()
+        public WorkItem Build(out List<string> errormsg)
         {
+            errormsg = new List<string>();
             if(EndTime<StartTime)
             {
+                errormsg.Add("Time Setting Error");
                 throw new Exception("End Time Setting Error");
             }
             if(workCode==null)
             {
+                errormsg.Add("No WorkCode Error");
                 throw new ArgumentNullException("WorkCode Null");
             }
             if(Comment==null)

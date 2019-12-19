@@ -111,6 +111,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImportWorkDB.cs" />
+    <Compile Include="Warning.xaml.cs">
+      <DependentUpon>Warning.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WorkCodeTIme.cs" />
     <Compile Include="WorkItemBuilder.cs" />
     <Page Include="Analize.xaml">
@@ -148,6 +151,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RegisterWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warning.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

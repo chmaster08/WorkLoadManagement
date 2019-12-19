@@ -116,7 +116,6 @@ C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Deb
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.Core.xml
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.DynamoDBv2.pdb
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.DynamoDBv2.xml
-C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csprojAssemblyReference.cache
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.Core.dll
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.DynamoDBv2.dll
 C:\Users\chmaster\Documents\Visual Studio 2019\WorkLoadManagement\WorkLoadManagement\bin\Debug\AWSSDK.Core.pdb

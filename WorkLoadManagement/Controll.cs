@@ -19,7 +19,7 @@ namespace WorkLoadManagement
         private WorkCodeList workCodeList;
         private List<MonthlyWorkCodeTime> monthlyWorkCodeTimes;
         private AmazonDynamoDBClient client;
-        private bool isConnectableToAWS=false;
+        private ImportWorkDB myImport;
         private string codepath = @"C:\Users\" + Environment.UserName + @"\CodeOutput.data";
         private string datapath = @"C:\Users\" + Environment.UserName + @"\DataOutput.data";
 
@@ -32,19 +32,15 @@ namespace WorkLoadManagement
             try
             {
                 AWSSetting();
-                GetItemFromAWS();
-                isConnectableToAWS = true;
+                myImport = new ImportWorkDB(this);
+                myImport.ImportData();
             }
             catch(Exception ex)
             {
-                Input();
                 throw new Exception(ex.Message);
             }
         }
 
-        
-        public Dictionary<DateTime,TimeSpan> MonthlyWorkTime { get; set; }
-        public Dictionary<DateTime,TimeSpan> WeaklyWorkTime { get; set; }
         
         public WorkDataList WorkDataList
         {
@@ -66,6 +62,13 @@ namespace WorkLoadManagement
             get
             {
                 return monthlyWorkCodeTimes;
+            }
+        }
+        public AmazonDynamoDBClient Client
+        {
+            get
+            {
+                return client;
             }
         }
        
@@ -104,8 +107,7 @@ namespace WorkLoadManagement
         }
         public void Input()
         {
-            InputWorkData();
-            InputWorkCode();
+            
 
         }
 
@@ -137,53 +139,7 @@ namespace WorkLoadManagement
 
         }
 
-        public void GetItemFromAWS()
-        {
-            var table = Amazon.DynamoDBv2.DocumentModel.Table.LoadTable(client, "WorkItemList");
-            var search = table.Scan(new Amazon.DynamoDBv2.DocumentModel.Expression());
-            var documentlist = new List<Document>();
-            do
-            {
-                documentlist.AddRange(search.GetNextSet());
-            } while (!search.IsDone);
-
-            foreach(var doc in documentlist)
-            {
-                var item = new WorkItem();
-                foreach(var attr in doc.GetAttributeNames())
-                {
-                    var value = doc[attr];
-                    if (attr == "StartTime")
-                    {
-                        item.StartTime =DateTime.Parse(doc[attr]) ;
-                    }
-                    else if (attr == "EndTime")
-                    {
-                        item.EndTime = DateTime.Parse(doc[attr]);
-                    }
-                    else if (attr == "workCode")
-                    {
-                        item.workCode = doc[attr];
-                    }
-                    else if (attr == "Comment")
-                    {
-                        item.Comment = doc[attr];
-                    }
-                    else if(attr == "CreateTime")
-                    {
-                        item.CreateTime = DateTime.Parse(doc[attr]);
-                    }
-                    else if(attr=="ID")
-                    {
-                        item.ID = Guid.Parse(doc[attr]);
-                    }
-
-                }
-                SetWorkData(item);
-            }
-
-
-        }
+        
         private void CreateTables()
         {
             List<string> currentTables = client.ListTables().TableNames;

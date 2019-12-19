@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Release\
 WorkLoadManagement
 none
 false
-DEBUG;TRACE
+TRACE
 
 41654451236
 
-181709701280
+19-107705295
 33-249674730
 Analize.xaml;App.xaml;MainWindow.xaml;RegisterWork.xaml;
 
-False
+True
 

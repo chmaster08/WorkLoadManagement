@@ -110,6 +110,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImportWorkDB.cs" />
     <Compile Include="WorkCodeTIme.cs" />
     <Compile Include="WorkItemBuilder.cs" />
     <Page Include="Analize.xaml">

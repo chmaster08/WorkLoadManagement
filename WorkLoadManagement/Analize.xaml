@@ -20,7 +20,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="WorkCode" DisplayMemberBinding="{Binding Path=Key}" Width="100"/>
-                    <GridViewColumn Header="WorkTime" DisplayMemberBinding="{Binding Path=Value,StringFormat={}{0:hh\\:mm}}" Width="100"/>
+                    <GridViewColumn Header="WorkTime" DisplayMemberBinding="{Binding Path=Value}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>

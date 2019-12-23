@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WorkLoadManagement
 {
@@ -58,9 +59,15 @@ namespace WorkLoadManagement
             if(errormsgList.Any())
             {
                 Warning view = new Warning(errormsgList);
+                view.Owner = Application.Current.MainWindow;
+                view.ShowDialog();
             }
-            mycontrol.SetWorkData(workitem);
-            mycontrol.AddWorkItemToAWS(workitem);
+            else
+            {
+                mycontrol.SetWorkData(workitem);
+                mycontrol.AddWorkItemToAWS(workitem);
+            }
+            
         }
 
         public void RefreshEndTime()

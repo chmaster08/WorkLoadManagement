@@ -20,14 +20,26 @@ namespace WorkLoadManagement
     public partial class Warning : Window
     {
         private List<string> erromsg;
+        private string outmsg;
 
         public Warning(List<string> message)
         {
             InitializeComponent();
             erromsg = message;
+            ConnectString();
+            Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
+            this.DataContext = ErrorMsg;
+
+        }
+        public string ErrorMsg
+        {
+            get
+            {
+                return outmsg;
+            }
         }
 
-        
+
         private void Btn_OKClick(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -40,6 +52,7 @@ namespace WorkLoadManagement
             {
                 longletter += (item + "\n");
             }
+            outmsg = longletter;
         }
     }
 }

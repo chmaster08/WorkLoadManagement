@@ -67,6 +67,7 @@ namespace WorkLoadManagement
                 IsExitError = false;
                 mycontrol.SetWorkData(workitem);
                 mycontrol.AddWorkItemToAWS(workitem);
+                mycontrol.SingleCalc(workitem);
             }
             
         }

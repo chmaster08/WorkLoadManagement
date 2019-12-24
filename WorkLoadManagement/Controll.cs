@@ -40,6 +40,7 @@ namespace WorkLoadManagement
             {
                 ShowWarningWindow("Failed to Connect to AWS");
             }
+            AnalizeCalc();
         }
 
         
@@ -106,8 +107,10 @@ namespace WorkLoadManagement
             OutputWorkData();
             OutputWorkCode();
         }
-        public void Input()
+        public void SingleCalc(WorkItem item)
         {
+            var mycontroller = new MonthlyWorkCodeController(monthlyWorkCodeTimes);
+            mycontroller.Add(item);
             
 
         }

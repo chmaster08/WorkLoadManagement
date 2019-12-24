@@ -34,7 +34,6 @@ namespace WorkLoadManagement
         {
             //localに一応保存。次回にデータベースと差異がある場合更新
             mycontrol.Output();
-            mycontrol.AnalizeCalc();
             AnalizeViewModel viewModel = new AnalizeViewModel(mycontrol);
             Analize view = new Analize(viewModel);
             view.Owner = Application.Current.MainWindow;

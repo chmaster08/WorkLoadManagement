@@ -26,7 +26,7 @@ namespace WorkLoadManagement
         {
             InitializeComponent();
             erromsg = message;
-            ConnectString();
+            ListToString();
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
             this.EMsg.Text = outmsg;
         }
@@ -51,7 +51,7 @@ namespace WorkLoadManagement
             this.Close();
         }
 
-        private void ConnectString()
+        private void ListToString()
         {
             var longletter=string.Empty;
             foreach(var item  in erromsg)

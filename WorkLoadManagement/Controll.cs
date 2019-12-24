@@ -38,9 +38,7 @@ namespace WorkLoadManagement
             }
             catch
             {
-                Warning view = new Warning("Failed to Connect to AWS");
-                view.Owner = Application.Current.MainWindow;
-                view.ShowDialog();
+                ShowWarningWindow("Failed to Connect to AWS");
             }
         }
 
@@ -142,7 +140,20 @@ namespace WorkLoadManagement
 
         }
 
-        
+        public void ShowWarningWindow(List<string> stringlist)
+        {
+            Warning view = new Warning(stringlist);
+            view.Owner = Application.Current.MainWindow;
+            view.ShowDialog();
+        }
+        public void ShowWarningWindow(string strings)
+        {
+            Warning view = new Warning(strings);
+            view.Owner = Application.Current.MainWindow;
+            view.ShowDialog();
+        }
+
+
         private void CreateTables()
         {
             List<string> currentTables = client.ListTables().TableNames;

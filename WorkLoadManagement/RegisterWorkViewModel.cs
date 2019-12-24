@@ -60,9 +60,7 @@ namespace WorkLoadManagement
             if(errormsgList.Any())
             {
                 IsExitError = true;
-                Warning view = new Warning(errormsgList);
-                view.Owner = Application.Current.MainWindow;
-                view.ShowDialog();
+                mycontrol.ShowWarningWindow(errormsgList);
             }
             else
             {

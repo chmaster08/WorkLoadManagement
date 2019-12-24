@@ -33,7 +33,10 @@ namespace WorkLoadManagement
             myViewModel.SetWorkData();
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
 
-            this.Close();
+            if(!myViewModel.IsExitError)
+            {
+                this.Close();
+            }
         }
 
         private void BtnCancelClick(object sender,RoutedEventArgs e)

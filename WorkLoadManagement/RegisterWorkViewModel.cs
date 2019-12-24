@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WorkLoadManagement
 {
@@ -20,6 +21,7 @@ namespace WorkLoadManagement
         private string itemindex;
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public bool IsExitError { get; private set; } 
 
         public RegisterWorkViewModel(Control control)
         {
@@ -57,10 +59,17 @@ namespace WorkLoadManagement
             }.Build(out errormsgList);
             if(errormsgList.Any())
             {
-                Warning view = new Warning(errormsgList);
+                IsExitError = true;
+                mycontrol.ShowWarningWindow(errormsgList);
             }
-            mycontrol.SetWorkData(workitem);
-            mycontrol.AddWorkItemToAWS(workitem);
+            else
+            {
+                IsExitError = false;
+                mycontrol.SetWorkData(workitem);
+                mycontrol.AddWorkItemToAWS(workitem);
+                mycontrol.SingleCalc(workitem);
+            }
+            
         }
 
         public void RefreshEndTime()

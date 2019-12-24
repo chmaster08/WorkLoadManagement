@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace WorkLoadManagement
 {
-    public class WorkItem
+    public interface IWorkItem
+        {
+
+        }
+    public class WorkItem:IWorkItem
     {
         internal WorkItem(WorkItemBuilder builder)
         {
@@ -33,6 +37,11 @@ namespace WorkLoadManagement
         {
             return EndTime - StartTime;
         }
+    }
+
+    public class NullWorkItem
+    {
+
     }
 
 }

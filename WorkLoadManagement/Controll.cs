@@ -10,6 +10,7 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon;
+using System.Windows;
 
 namespace WorkLoadManagement
 {
@@ -35,10 +36,11 @@ namespace WorkLoadManagement
                 myImport = new ImportWorkDB(this);
                 myImport.ImportData();
             }
-            catch(Exception ex)
+            catch
             {
-                throw new Exception(ex.Message);
+                ShowWarningWindow("Failed to Connect to AWS");
             }
+            AnalizeCalc();
         }
 
         
@@ -105,8 +107,10 @@ namespace WorkLoadManagement
             OutputWorkData();
             OutputWorkCode();
         }
-        public void Input()
+        public void SingleCalc(WorkItem item)
         {
+            var mycontroller = new MonthlyWorkCodeController(monthlyWorkCodeTimes);
+            mycontroller.Add(item);
             
 
         }
@@ -139,7 +143,20 @@ namespace WorkLoadManagement
 
         }
 
-        
+        public void ShowWarningWindow(List<string> stringlist)
+        {
+            Warning view = new Warning(stringlist);
+            view.Owner = Application.Current.MainWindow;
+            view.ShowDialog();
+        }
+        public void ShowWarningWindow(string strings)
+        {
+            Warning view = new Warning(strings);
+            view.Owner = Application.Current.MainWindow;
+            view.ShowDialog();
+        }
+
+
         private void CreateTables()
         {
             List<string> currentTables = client.ListTables().TableNames;

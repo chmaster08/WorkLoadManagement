@@ -21,12 +21,12 @@ namespace WorkLoadManagement
             if(EndTime<StartTime)
             {
                 errormsg.Add("Time Setting Error");
-                throw new Exception("End Time Setting Error");
+                //throw new Exception("End Time Setting Error");
             }
             if(workCode==null)
             {
                 errormsg.Add("No WorkCode Error");
-                throw new ArgumentNullException("WorkCode Null");
+                //throw new ArgumentNullException("WorkCode Null");
             }
             if(Comment==null)
             {

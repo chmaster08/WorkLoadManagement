@@ -28,8 +28,14 @@ namespace WorkLoadManagement
             erromsg = message;
             ConnectString();
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
-            this.DataContext = ErrorMsg;
-
+            this.EMsg.Text = outmsg;
+        }
+        public Warning(string message)
+        {
+            InitializeComponent();
+            outmsg = message;
+            Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
+            this.EMsg.Text = outmsg;
         }
         public string ErrorMsg
         {

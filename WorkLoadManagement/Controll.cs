@@ -10,6 +10,7 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon;
+using System.Windows;
 
 namespace WorkLoadManagement
 {
@@ -35,9 +36,11 @@ namespace WorkLoadManagement
                 myImport = new ImportWorkDB(this);
                 myImport.ImportData();
             }
-            catch(Exception ex)
+            catch
             {
-                throw new Exception(ex.Message);
+                Warning view = new Warning("Failed to Connect to AWS");
+                view.Owner = Application.Current.MainWindow;
+                view.ShowDialog();
             }
         }
 

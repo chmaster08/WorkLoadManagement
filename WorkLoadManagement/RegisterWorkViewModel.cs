@@ -21,6 +21,7 @@ namespace WorkLoadManagement
         private string itemindex;
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public bool IsExitError { get; private set; } 
 
         public RegisterWorkViewModel(Control control)
         {
@@ -58,12 +59,14 @@ namespace WorkLoadManagement
             }.Build(out errormsgList);
             if(errormsgList.Any())
             {
+                IsExitError = true;
                 Warning view = new Warning(errormsgList);
                 view.Owner = Application.Current.MainWindow;
                 view.ShowDialog();
             }
             else
             {
+                IsExitError = false;
                 mycontrol.SetWorkData(workitem);
                 mycontrol.AddWorkItemToAWS(workitem);
             }

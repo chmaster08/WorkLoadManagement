@@ -1,5 +1,6 @@
 ﻿using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DocumentModel;
+using Amazon.DynamoDBv2.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -45,7 +46,7 @@ namespace WorkLoadManagement
             }
             catch
             {
-                Warning view = new Warning(new List<string>() {"AWS Connection Error"});
+                Warning view = new Warning("AWS Connection Error");
                 view.Owner = System.Windows.Application.Current.MainWindow;
                 view.ShowDialog();
                 AWSlist = new List<WorkItem>();
@@ -72,6 +73,11 @@ namespace WorkLoadManagement
 
         private List<WorkItem> ImportDataFromAWS()
         {
+            var request = new ScanRequest
+            {
+                TableName = "WorkItemList",
+
+            };
 
             var table = Amazon.DynamoDBv2.DocumentModel.Table.LoadTable(client, "WorkItemList");
             var search = table.Scan(new Amazon.DynamoDBv2.DocumentModel.Expression());

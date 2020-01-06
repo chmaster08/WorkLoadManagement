@@ -15,11 +15,13 @@ namespace WorkLoadManagement
         private Control mycontrol;
         private ObservableCollection<WorkItem> workdatalist;
         private ObservableCollection<Dictionary<string, string>> Monthlydatalist;
+        private List<MonthlyWorkCodeTime> PresentMonthlyWorkCodeTime;
 
         public AnalizeViewModel(Control control)
         {
             mycontrol = control;
             Monthlydatalist = new ObservableCollection<Dictionary<string, string>>();
+            PresentMonthlyWorkCodeTime = new List<MonthlyWorkCodeTime>();
             LoadWorkDataList();
             LoadMonthlyData();
             LoadGraphData();
@@ -40,8 +42,8 @@ namespace WorkLoadManagement
 
             DateTime present = DateTime.Now;
             var itemlist = mycontrol.MonthlyWorkCodeTimes.Where(x => x.Year == present.Year & x.Month == present.Month);
-            var orderedlist = itemlist.OrderByDescending(x => x.WorkTime);
-            foreach (var item in orderedlist)
+            PresentMonthlyWorkCodeTime.AddRange(itemlist.OrderByDescending(x => x.WorkTime));
+            foreach (var item in PresentMonthlyWorkCodeTime)
             {
                 string minutes = item.WorkTime.Minutes.ToString();
                 if (minutes.Length == 1) minutes = '0' + minutes;
@@ -65,11 +67,20 @@ namespace WorkLoadManagement
             };
             DateTime present = DateTime.Now;
 
-
-            foreach(var item in mycontrol.MonthlyWorkCodeTimes)
+            if(PresentMonthlyWorkCodeTime.Any())
             {
-                series.Slices.Add(new PieSlice(item.WorkCode,item.WorkTime.TotalMinutes));
+                foreach(var item in PresentMonthlyWorkCodeTime)
+                {
+                    series.Slices.Add(new PieSlice(item.WorkCode,item.WorkTime.TotalMinutes));
+                }
             }
+            else
+            {
+                series.Slices.Add(new PieSlice("No Data",100));
+            }
+
+
+            
 
             _PlotModel.Series.Add(series);
 

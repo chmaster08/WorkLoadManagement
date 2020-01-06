@@ -47,7 +47,6 @@
             IsEditable="True"
             >
         </ComboBox>
-        <Button x:Name="Getnow"  Click="BtnGetPresentTime" Grid.Column="2" Margin="148,24,20,60" Grid.Row="1" Height="Auto"></Button>
 
         <TextBlock Text="Comment" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0" FontSize="20"></TextBlock>
         <TextBox Text="{Binding Comment}" Grid.Column="1" HorizontalAlignment="Center" Height="50" Margin="0,0,0,20" Grid.Row="3"  VerticalAlignment="Bottom" Width="220" Grid.ColumnSpan="2"/>

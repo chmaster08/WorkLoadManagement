@@ -186,3 +186,6 @@ C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Deb
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.exe
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.pdb
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csprojAssemblyReference.cache
+C:\Users\smart\Source\Repos\chmaster08\WorkLoadManagement\WorkLoadManagement\obj\Debug\WorkLoadManagement.csprojAssemblyReference.cache
+C:\Users\smart\Source\Repos\chmaster08\WorkLoadManagement\WorkLoadManagement\obj\Debug\Warning.g.cs
+C:\Users\smart\Source\Repos\chmaster08\WorkLoadManagement\WorkLoadManagement\obj\Debug\Warning.baml

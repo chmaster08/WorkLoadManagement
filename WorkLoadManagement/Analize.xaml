@@ -39,9 +39,9 @@
         </ListView>
 
 
-        <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="214,224,213,11" Grid.ColumnSpan="2"/>
+        <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="74.667,225,54.667,10" Grid.Column="1"/>
 
-        <ItemsControl ItemsSource="{Binding WorkItem}">
+        <ItemsControl ItemsSource="{Binding TodayWorkItemList}" Margin="20,241,26.333,10" Grid.Column="0">
             <ItemsControl.Template>
                 <ControlTemplate TargetType="ItemsControl">
                     <Border BorderThickness="1"
@@ -58,7 +58,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock></TextBlock>
+                    <TextBlock Text="{Binding Path=workCode}"></TextBlock>
                     
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

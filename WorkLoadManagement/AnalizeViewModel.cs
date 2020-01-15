@@ -16,6 +16,7 @@ namespace WorkLoadManagement
         private ObservableCollection<WorkItem> workdatalist;
         private ObservableCollection<Dictionary<string, string>> Monthlydatalist;
         private List<MonthlyWorkCodeTime> PresentMonthlyWorkCodeTime;
+        private ObservableCollection<WorkItem> todayWorkItemList;
 
         public AnalizeViewModel(Control control)
         {
@@ -24,6 +25,7 @@ namespace WorkLoadManagement
             PresentMonthlyWorkCodeTime = new List<MonthlyWorkCodeTime>();
             LoadWorkDataList();
             LoadMonthlyData();
+            LoadTodayWorkData();
             LoadGraphData();
         }
 
@@ -35,6 +37,21 @@ namespace WorkLoadManagement
                 nonOrderdList.Add(item);
             }
             workdatalist = new ObservableCollection<WorkItem>(nonOrderdList.OrderByDescending(n=>n.StartTime));
+        }
+
+        private void LoadTodayWorkData()
+        {
+            var nonOderdList = new ObservableCollection<WorkItem>();
+            var itemlist = mycontrol.WorkDataList.itemList;
+            foreach(var item in itemlist)
+            {
+                if (item.StartTime.Month == DateTime.Today.Month & item.StartTime.Day==DateTime.Today.Day) 
+                {
+                    nonOderdList.Add(item);
+
+                };
+            }
+            todayWorkItemList = new ObservableCollection<WorkItem>(nonOderdList.OrderByDescending(n => n.StartTime));
         }
 
         private void LoadMonthlyData()
@@ -106,6 +123,14 @@ namespace WorkLoadManagement
             get
             {
                 return DateTime.Now.ToString("yyyy/MM");
+            }
+        }
+
+        public ObservableCollection<WorkItem> TodayWorkItemList
+        {
+            get
+            {
+                return todayWorkItemList;
             }
         }
 

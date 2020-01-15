@@ -58,7 +58,14 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Path=workCode}"></TextBlock>
+                    <TextBlock Margin="10">
+                        <Run Text="{Binding Path=workCode}"/>
+                        <Run Text="{Binding Path=StartTime}"/>
+                        <Run Text="~"/>
+                        <Run Text="{Binding Path=EndTime}"/>
+                        <LineBreak/>
+                        <Run Text="{Binding Path=Comment}"/>
+                    </TextBlock>
                     
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

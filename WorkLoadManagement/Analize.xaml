@@ -41,5 +41,28 @@
 
         <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="214,224,213,11" Grid.ColumnSpan="2"/>
 
+        <ItemsControl ItemsSource="{Binding WorkItem}">
+            <ItemsControl.Template>
+                <ControlTemplate TargetType="ItemsControl">
+                    <Border BorderThickness="1"
+                      BorderBrush="Black"
+                      Background="AliceBlue">
+                        <ItemsPresenter Margin="5"/>
+                    </Border>
+                </ControlTemplate>
+            </ItemsControl.Template>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock></TextBlock>
+                    
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
     </Grid>
 </Window>

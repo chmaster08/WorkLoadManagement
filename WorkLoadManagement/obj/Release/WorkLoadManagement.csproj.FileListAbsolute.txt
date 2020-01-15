@@ -184,7 +184,6 @@ C:\Users\smart\Source\Repos\chmaster08\WorkLoadManagement\WorkLoadManagement\obj
 C:\Users\smart\Source\Repos\chmaster08\WorkLoadManagement\WorkLoadManagement\obj\Release\WorkLoadManagement.csproj.CopyComplete
 C:\Users\smart\Source\Repos\chmaster08\WorkLoadManagement\WorkLoadManagement\obj\Release\WorkLoadManagement.exe
 C:\Users\smart\Source\Repos\chmaster08\WorkLoadManagement\WorkLoadManagement\obj\Release\WorkLoadManagement.pdb
-C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Release\WorkLoadManagement.csprojAssemblyReference.cache
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Release\Warning.g.cs
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Release\Warning.baml
 C:\Users\smart\Source\Repos\chmaster08\WorkLoadManagement\WorkLoadManagement\obj\Release\Warning.g.cs

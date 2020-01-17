@@ -41,7 +41,7 @@
 
         <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="74.667,225,54.667,10" Grid.Column="1"/>
 
-        <ItemsControl ItemsSource="{Binding TodayWorkItemList}" Margin="20,241,26.333,10" Grid.Column="0">
+        <ItemsControl ItemsSource="{Binding TodayWorkItemList}" Margin="20,241,76.333,10" Grid.Column="0">
             <ItemsControl.Template>
                 <ControlTemplate TargetType="ItemsControl">
                     <Border BorderThickness="1"
@@ -53,16 +53,18 @@
             </ItemsControl.Template>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel/>
+                    <StackPanel>
+                        <Border BorderThickness="1"></Border>
+                    </StackPanel>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Margin="10">
-                        <Run Text="{Binding Path=workCode}"/>
-                        <Run Text="{Binding Path=StartTime}"/>
+                    <TextBlock Margin="10" HorizontalAlignment="Center" >
+                        <Run Text="{Binding Path=workCode}" FontSize="15" FontWeight="Bold"/>
+                        <Run Text="{Binding Path=StartTime,StringFormat={}{0:hh:mm}}"/>
                         <Run Text="~"/>
-                        <Run Text="{Binding Path=EndTime}"/>
+                        <Run Text="{Binding Path=EndTime,StringFormat={}{0:hh:mm}}"/>
                         <LineBreak/>
                         <Run Text="{Binding Path=Comment}"/>
                     </TextBlock>

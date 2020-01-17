@@ -7,7 +7,8 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:wtk = "clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         mc:Ignorable="d"
-        Title="Analize" Height="450" Width="700" ResizeMode="NoResize" ShowInTaskbar="False">
+        Title="Analize" Height="550" Width="700" ResizeMode="NoResize" ShowInTaskbar="False">
+    
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*"></ColumnDefinition>
@@ -16,26 +17,34 @@
             <ColumnDefinition Width="0.1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="6*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="8*"></RowDefinition>
-            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
 
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding Path=PresentMonth}" FontSize="18" Grid.Column="1" Grid.Row="1"></TextBlock>
-        <TextBlock Text="の開発コード別工数" FontSize="15" Grid.Column="1" Grid.Row="1"></TextBlock>
+        
+        <TextBlock Text="{Binding Path=PresentMonth}" FontSize="15" Grid.Column="1" Grid.Row="1" Margin="65,0,0,0"></TextBlock>
+        <TextBlock Text="の開発コード別工数" FontSize="15" Grid.Column="1" Grid.Row="1" Margin="120,0,0,0"></TextBlock>
 
-        <ListView Grid.Column="1" Grid.Row="2"  Height="154" Width="199" ItemsSource="{Binding MonthlyWorkData}">
+        <ListView Grid.Column="1" Grid.Row="2"  Height="150" Width="250" ItemsSource="{Binding MonthlyWorkData}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <!-- ListView の列（セル）に左揃え・中央揃え・右揃えを設定するのに必要な定義 -->
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="WorkCode" DisplayMemberBinding="{Binding Path=Key}" Width="100"/>
-                    <GridViewColumn Header="WorkTime" DisplayMemberBinding="{Binding Path=Value}" Width="100"/>
+                    <GridViewColumn Header="WorkCode" DisplayMemberBinding="{Binding Path=Key}" Width="125"/>
+                    <GridViewColumn Header="WorkTime" DisplayMemberBinding="{Binding Path=Value}" Width="125"/>
                 </GridView>
             </ListView.View>
+            
         </ListView>
-        <TextBlock Text="全工数" FontSize="15" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"></TextBlock>
+        <TextBlock Text="全工数" FontSize="15" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"></TextBlock>
 
         <ListView Grid.Column="2" Grid.Row="2" Height="156" Width="327" ItemsSource="{Binding WorkDataList}">
             <ListView.View>
@@ -47,16 +56,32 @@
                     <GridViewColumn Header="Comment" DisplayMemberBinding="{Binding Path=Comment}" Width="80"/>
                 </GridView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <!-- ListView の列（セル）に左揃え・中央揃え・右揃えを設定するのに必要な定義 -->
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
 
 
         <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="74.667,225,54.667,10" Grid.Column="2" Grid.Row="2"/>
-
-        <ListBox x:Name="TodayBox" Grid.Column="1" Grid.Row="4" Width="250" Height="180">
+        <TextBlock Text="本日の仕事内容" FontSize="15" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center"></TextBlock>
+        <ListBox x:Name="TodayBox" Grid.Column="1" Grid.Row="4" Width="250" Height="200" ItemsSource="{Binding TodayWorkItemList}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="AliceBlue" BorderThickness="1">
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Height="40" Width="250">
+                            <TextBlock Text="{Binding Path=workCode}" FontSize="15"/>
+                            <TextBlock Text="{Binding Path=StartTime, StringFormat={}{0:HH:mm}}" Margin="-52,20,0,0"/>
+                            <TextBlock Text="~" Margin="-24,20,0,0"/>
+                            <TextBlock Text="{Binding Path=EndTime,StringFormat={}{0:HH:mm}}" Margin="-17,20,0,0"/>
+                            <TextBlock Text="{Binding Path=Comment}" Padding="2"/>
 
                         </StackPanel>
                     </Border>

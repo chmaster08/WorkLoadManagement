@@ -7,16 +7,27 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:wtk = "clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         mc:Ignorable="d"
-        Title="Analize" Height="450" Width="600" ResizeMode="NoResize" ShowInTaskbar="False">
+        Title="Analize" Height="450" Width="700" ResizeMode="NoResize" ShowInTaskbar="False">
     <Grid >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="{Binding Path=PresentMonth}" FontSize="18" Grid.Column="0" HorizontalAlignment="Left" Margin="20,20,0,34"></TextBlock>
-        <TextBlock Text="の開発コード別工数" FontSize="15" Grid.Column="0" HorizontalAlignment="Left" Margin="90,22,0,34"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
 
-        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="154" VerticalAlignment="Top" Width="199" ItemsSource="{Binding MonthlyWorkData}" Margin="20,49,0,0">
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding Path=PresentMonth}" FontSize="18" Grid.Column="1" Grid.Row="1"></TextBlock>
+        <TextBlock Text="の開発コード別工数" FontSize="15" Grid.Column="1" Grid.Row="1"></TextBlock>
+
+        <ListView Grid.Column="1" Grid.Row="2"  Height="154" Width="199" ItemsSource="{Binding MonthlyWorkData}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="WorkCode" DisplayMemberBinding="{Binding Path=Key}" Width="100"/>
@@ -24,9 +35,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBlock Text="全工数" FontSize="15" Grid.Column="1" HorizontalAlignment="Left" Margin="90,22,0,34"></TextBlock>
+        <TextBlock Text="全工数" FontSize="15" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"></TextBlock>
 
-        <ListView Grid.Column="0" HorizontalAlignment="Left" Height="156" Margin="246,0,0,207" VerticalAlignment="Bottom" Width="327" ItemsSource="{Binding WorkDataList}" Grid.ColumnSpan="2">
+        <ListView Grid.Column="2" Grid.Row="2" Height="156" Width="327" ItemsSource="{Binding WorkDataList}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Path=StartTime,StringFormat={}{0:yyyy/MM/dd}}" Width="75"/>
@@ -39,38 +50,18 @@
         </ListView>
 
 
-        <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="74.667,225,54.667,10" Grid.Column="1"/>
+        <oxy:PlotView Model="{Binding _PlotModel, Mode=OneWay}" Margin="74.667,225,54.667,10" Grid.Column="2" Grid.Row="2"/>
 
-        <ItemsControl ItemsSource="{Binding TodayWorkItemList}" Margin="20,241,26.333,10" Grid.Column="0">
-            <ItemsControl.Template>
-                <ControlTemplate TargetType="ItemsControl">
-                    <Border BorderThickness="1"
-                      BorderBrush="Black"
-                      Background="AliceBlue">
-                        <ItemsPresenter Margin="5"/>
-                    </Border>
-                </ControlTemplate>
-            </ItemsControl.Template>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
+        <ListBox x:Name="TodayBox" Grid.Column="1" Grid.Row="4" Width="250" Height="180">
+            <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="AliceBlue" BorderThickness="1">
-                        <TextBlock Margin="10">
-                            <Run Text="{Binding Path=workCode}"/>
-                            <Run Text="{Binding Path=StartTime}"/>
-                            <Run Text="~"/>
-                            <Run Text="{Binding Path=EndTime}"/>
-                            <LineBreak/>
-                            <Run Text="{Binding Path=Comment}"/>
-                        </TextBlock>
+                        <StackPanel Orientation="Horizontal">
+
+                        </StackPanel>
                     </Border>
                 </DataTemplate>
-            </ItemsControl.ItemTemplate>
-
-        </ItemsControl>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

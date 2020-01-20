@@ -30,8 +30,6 @@ namespace WorkLoadManagement
             workCodeList = new WorkCodeList();
             workDataList = new WorkDataList();
             monthlyWorkCodeTimes = new List<MonthlyWorkCodeTime>();
-            Task AWSTask = new Task(GetAWSData);
-            AWSTask.Start();
             
         }
 

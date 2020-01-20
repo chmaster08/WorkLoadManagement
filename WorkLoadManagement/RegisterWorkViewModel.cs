@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace WorkLoadManagement
 {
-    public class RegisterWorkViewModel
+    public class RegisterWorkViewModel : ViewModelBase
     {
         private Control mycontrol;
         private WorkItem workitem;
@@ -20,7 +20,6 @@ namespace WorkLoadManagement
         private ObservableCollection<string> workcodelist;
         private string itemindex;
 
-        public event PropertyChangedEventHandler PropertyChanged;
         public bool IsExitError { get; private set; } 
 
         public RegisterWorkViewModel(Control control)
@@ -148,18 +147,6 @@ namespace WorkLoadManagement
             {
                 comment = value;
                 OnPropertyChanged("Comment");
-            }
-        }
-
-
-
-
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if(handler!=null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
             }
         }
 

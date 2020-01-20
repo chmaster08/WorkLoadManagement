@@ -10,15 +10,37 @@ using System.Windows.Controls;
 using System.Windows;
 namespace WorkLoadManagement
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel:ViewModelBase
     {
         private Control mycontrol;
+        private bool isLoaded=false;
 
         public MainWindowViewModel(Control control)
         {
             mycontrol = control;
+            Task AWSTask = new Task(LoadData);
+            AWSTask.Start();
             //local test用
             //mycontrol.Input();
+        }
+
+        public bool IsLoaded
+        {
+            get
+            {
+                return isLoaded;
+            }
+            set
+            {
+                isLoaded = value;
+                OnPropertyChanged("IsLoaded");
+            }
+        }
+
+        public void LoadData()
+        {
+            mycontrol.GetAWSData();
+            IsLoaded = true;
         }
 
         public void OpenNewWorkView()
@@ -41,5 +63,6 @@ namespace WorkLoadManagement
 
             //統計データ表示画面
         }
+
     }
 }

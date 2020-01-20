@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImportWorkDB.cs" />
+    <Compile Include="ViewModelBase.cs" />
     <Compile Include="Warning.xaml.cs">
       <DependentUpon>Warning.xaml</DependentUpon>
     </Compile>

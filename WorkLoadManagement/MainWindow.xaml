@@ -47,6 +47,7 @@
         <Button
             Content="Register Work"
             Click="BtnNew_Click"
+            IsEnabled="{Binding Path=IsLoaded}"
             HorizontalAlignment="Left"
             Grid.Column="1"
             Grid.Row="3"
@@ -55,6 +56,7 @@
         <Button
             Content="Analize"
             Click="BtnData_Click"
+            IsEnabled="{Binding Path=IsLoaded}"
             HorizontalAlignment="Right"
             Grid.Column="1"
             Grid.Row="3"

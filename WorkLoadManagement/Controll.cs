@@ -30,17 +30,9 @@ namespace WorkLoadManagement
             workCodeList = new WorkCodeList();
             workDataList = new WorkDataList();
             monthlyWorkCodeTimes = new List<MonthlyWorkCodeTime>();
-            try
-            {
-                AWSSetting();
-                myImport = new ImportWorkDB(this);
-                myImport.ImportData();
-            }
-            catch
-            {
-                ShowWarningWindow("Failed to Connect to AWS");
-            }
-            AnalizeCalc();
+            Task AWSTask = new Task(GetAWSData);
+            AWSTask.Start();
+            
         }
 
         
@@ -79,6 +71,22 @@ namespace WorkLoadManagement
         {
 
             
+        }
+
+        public void GetAWSData()
+        {
+            try
+            {
+                AWSSetting();
+                myImport = new ImportWorkDB(this);
+                myImport.ImportData();
+            }
+            catch
+            {
+                ShowWarningWindow("Failed to Connect to AWS");
+            }
+            AnalizeCalc();
+
         }
         
 

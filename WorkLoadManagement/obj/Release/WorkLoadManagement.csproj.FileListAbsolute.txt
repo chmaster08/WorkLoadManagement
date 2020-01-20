@@ -188,3 +188,4 @@ C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Rel
 C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Release\Warning.baml
 C:\Users\smart\Source\Repos\chmaster08\WorkLoadManagement\WorkLoadManagement\obj\Release\Warning.g.cs
 C:\Users\smart\Source\Repos\chmaster08\WorkLoadManagement\WorkLoadManagement\obj\Release\Warning.baml
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkLoadManagement\obj\Release\WorkLoadManagement.csprojAssemblyReference.cache

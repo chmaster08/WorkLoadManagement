@@ -52,6 +52,7 @@
             Grid.Column="1"
             Grid.Row="3"
             Margin="10,10,10,10" Width="124"
+            Style="{StaticResource FlatButtonStyle}"      
             ></Button>
         <Button
             Content="Analize"
@@ -61,9 +62,8 @@
             Grid.Column="1"
             Grid.Row="3"
             Margin="10,10,10,10" Width="124"
-            
-            
-            />
+            Style="{StaticResource FlatButtonStyle}"      
+            ></Button>
     </Grid>
     
     

@@ -8,6 +8,12 @@
         <SolidColorBrush x:Key="NormalBackgroundBrush" Color="DodgerBlue"/>
 
         <Style x:Key="FlatButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="2" RenderingBias="Quality" ShadowDepth="0.5"/>
+                </Setter.Value>
+            </Setter>
+
 
             <!-- アプリケーションで統一的なフォント、サイズなどをダイナミックに適用 -->
             <Setter Property="Foreground"                   Value="{DynamicResource AppForeground}"/>
@@ -15,7 +21,7 @@
             <Setter Property="FontSize"                     Value="{DynamicResource AppFontSize}"/>
 
             <!-- ボタン特有のスタイル -->
-            <Setter Property="Background"                   Value="LightSteelBlue"/>
+            <Setter Property="Background"                   Value="#29B6F6"/>
             <Setter Property="BorderBrush"                  Value="Transparent"/>
             <Setter Property="FocusVisualStyle"             Value="{x:Null}"/>
             <Setter Property="BorderThickness"              Value="1,1,1,1"/>
@@ -46,12 +52,12 @@
                                 <Setter Property="Background" Value="Gainsboro"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="LightSkyBlue" />
+                                <Setter Property="Background" Value="#039BE5" />
                                 <Setter Property="BorderBrush" Value="SteelBlue"/>
                                 <Setter Property="Foreground" Value="{DynamicResource ButtonTextHover}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" Value="SteelBlue" />
+                                <Setter Property="Background" Value="#0277BD" />
                                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderPressed}"/>
                                 <Setter Property="Foreground" Value="{DynamicResource ButtonTextPressed}"/>
                             </Trigger>

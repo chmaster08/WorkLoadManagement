@@ -13,7 +13,7 @@
             <RowDefinition Height="0.2*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Name="EMsg" Height="50" Width="auto" FontWeight="Bold" FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0"></TextBlock>
-        <Button Name="message" Content="OK" Click="Btn_OKClick" Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom" Height="39" Width="96" ></Button>
+        <Button Name="message" Content="OK" Click="Btn_OKClick" Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom" Height="39" Width="96" Style="{StaticResource FlatButtonStyle}"></Button>
 
     </Grid>
 </Window>

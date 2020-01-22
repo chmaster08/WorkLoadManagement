@@ -4,13 +4,12 @@
              xmlns:local="clr-namespace:WorkLoadManagement">
 
     <Application.Resources>
-        <SolidColorBrush x:Key="NormalButtonBrush" Color="DodgerBlue"/>
-        <SolidColorBrush x:Key="NormalBackgroundBrush" Color="DodgerBlue"/>
+        
 
         <Style x:Key="FlatButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Effect">
                 <Setter.Value>
-                    <DropShadowEffect BlurRadius="2" RenderingBias="Quality" ShadowDepth="0.5"/>
+                    <DropShadowEffect BlurRadius="1" RenderingBias="Quality" ShadowDepth="1"/>
                 </Setter.Value>
             </Setter>
 

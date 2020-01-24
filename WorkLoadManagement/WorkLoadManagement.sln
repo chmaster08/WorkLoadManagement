@@ -5,12 +5,7 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkLoadManagement", "WorkLoadManagement.csproj", "{1957695D-6AAA-44D8-93A0-7AE007FEC67E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{036057B7-5167-4F04-9632-EE057EFE07A8}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Downloads\01-2_86387.ico = ..\..\..\..\Downloads\01-2_86387.ico
-	EndProjectSection
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WorkTimeManager", "..\WorkTimeManager\WorkTimeManager.vdproj", "{31313EDC-D8CA-400B-A016-425E924938BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkTimeManagementCore", "..\WorkTimeManagementCore\WorkTimeManagementCore.csproj", "{71FCFB2E-9F4D-4F7A-91B0-D9625228A743}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,9 +17,10 @@ Global
 		{1957695D-6AAA-44D8-93A0-7AE007FEC67E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1957695D-6AAA-44D8-93A0-7AE007FEC67E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1957695D-6AAA-44D8-93A0-7AE007FEC67E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31313EDC-D8CA-400B-A016-425E924938BE}.Debug|Any CPU.ActiveCfg = Debug
-		{31313EDC-D8CA-400B-A016-425E924938BE}.Release|Any CPU.ActiveCfg = Release
-		{31313EDC-D8CA-400B-A016-425E924938BE}.Release|Any CPU.Build.0 = Release
+		{71FCFB2E-9F4D-4F7A-91B0-D9625228A743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71FCFB2E-9F4D-4F7A-91B0-D9625228A743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71FCFB2E-9F4D-4F7A-91B0-D9625228A743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71FCFB2E-9F4D-4F7A-91B0-D9625228A743}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

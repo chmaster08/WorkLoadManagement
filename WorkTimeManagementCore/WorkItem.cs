@@ -18,7 +18,7 @@ namespace WorkTimeManagementCore
             CreateTime = DateTime.Now;
             StartTime = builder.StartTime;
             EndTime = builder.EndTime;
-            workCode = builder.workCode;
+            WorkCode = builder.workCode;
             Comment = builder.Comment;
             ID = Guid.NewGuid();
         }
@@ -30,7 +30,7 @@ namespace WorkTimeManagementCore
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public DateTime CreateTime { get; set; }
-        public string workCode { get; set; }
+        public string WorkCode { get; set; }
         public string Comment { get; set; }
 
         public TimeSpan GetWorkTime()

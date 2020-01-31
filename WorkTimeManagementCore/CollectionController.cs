@@ -8,14 +8,12 @@ namespace WorkTimeManagementCore
 {
     public class CollectionController
     {
-        private bool isExistMonthlyCollection;
-        private bool isExistDaylyCollection;
         public CollectionController()
         {
-
+            CollectionList = new Dictionary<Collections, ICollection>();
         }
 
-        public List<ICollection> CollectionList { get; set; }
+        public Dictionary<Collections, ICollection> CollectionList { get; set; }
 
         public void AddItem(IWorkItem item)
         {
@@ -55,25 +53,6 @@ namespace WorkTimeManagementCore
         {
             throw new NotImplementedException();
         }
-        private void isExistCollection(ICollection collection)
-        {
-            if (CollectionList.Where(list => list is MonthlyCollection).Any(item => item.Date.Month == collection.Date.Month))
-            {
-                isExistMonthlyCollection = true;
-            }
-            else
-            {
-                isExistMonthlyCollection = false;
-            }
-            if (CollectionList.Where(list => list is DaylyCollection).Any(item => item.Date.Date == collection.Date.Date))
-            {
-                isExistDaylyCollection = true;
-            }
-            else
-            {
-                isExistDaylyCollection = false;
-            }
-
-        }
+        
     }
 }

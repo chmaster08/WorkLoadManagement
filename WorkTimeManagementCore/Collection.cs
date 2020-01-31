@@ -6,6 +6,13 @@ using WorkTimeManagementCore.Interface;
 
 namespace WorkTimeManagementCore
 {
+
+    public enum Collections
+    {
+        Total,
+        Monthly,
+        Dayly
+    }
     public class DaylyCollection : ICollection
     {
         public List<IWorkItem> DaylyWorkItemList { get; private set; }

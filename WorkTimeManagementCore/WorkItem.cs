@@ -18,7 +18,7 @@ namespace WorkTimeManagementCore
             CreateTime = DateTime.Now;
             StartTime = builder.StartTime;
             EndTime = builder.EndTime;
-            WorkCode = builder.workCode;
+            WorkCode = builder.WorkCode;
             Comment = builder.Comment;
             ID = Guid.NewGuid();
         }

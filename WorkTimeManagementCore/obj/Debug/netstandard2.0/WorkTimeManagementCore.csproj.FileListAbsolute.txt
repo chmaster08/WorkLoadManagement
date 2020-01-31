@@ -1,0 +1,3 @@
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.csprojAssemblyReference.cache
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.AssemblyInfoInputs.cache
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.AssemblyInfo.cs

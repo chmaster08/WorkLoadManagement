@@ -4,13 +4,13 @@ using System.Text;
 
 namespace WorkTimeManagementCore
 {
-    interface ICRUDItem
+    interface ICollection
     {
-        void CreateItem();
+        void AddItem(WorkItem item);
         WorkItem GetItem(Guid id);
-        List<WorkItem> ReadItems();
+        List<WorkItem> ReadItemList();
         void UpdateItem(Guid id);
         void DeleteItem(Guid id);
-        void DeleteAllItems();
+        void ClearItemList();
     }
 }

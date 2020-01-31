@@ -4,21 +4,14 @@ using System.Text;
 
 namespace WorkTimeManagementCore
 {
-
-
-    public class AllCRUD : ICRUDItem
+    public class DaylyCollection : ICollection
     {
-        public AllCRUD()
-        {
-
-        }
-
-        public void CreateItem()
+        public void AddItem(WorkItem item)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteAllItems()
+        public void ClearItemList()
         {
             throw new NotImplementedException();
         }
@@ -33,43 +26,7 @@ namespace WorkTimeManagementCore
             throw new NotImplementedException();
         }
 
-        public List<WorkItem> ReadItems()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateItem(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-    }
-    public class DaylyCRUD : ICRUDItem
-    {
-        public DaylyCRUD()
-        {
-
-        }
-        public void CreateItem()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteAllItems()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteItem(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public WorkItem GetItem(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<WorkItem> ReadItems()
+        public List<WorkItem> ReadItemList()
         {
             throw new NotImplementedException();
         }
@@ -80,19 +37,14 @@ namespace WorkTimeManagementCore
         }
     }
 
-    public class MonthlyCRUD : ICRUDItem
+    public class MonthlyCollection : ICollection
     {
-
-        public MonthlyCRUD()
-        {
-
-        }
-        public void CreateItem()
+        public void AddItem(WorkItem item)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteAllItems()
+        public void ClearItemList()
         {
             throw new NotImplementedException();
         }
@@ -107,7 +59,40 @@ namespace WorkTimeManagementCore
             throw new NotImplementedException();
         }
 
-        public List<WorkItem> ReadItems()
+        public List<WorkItem> ReadItemList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateItem(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class TotalCollection : ICollection
+    {
+        public void AddItem(WorkItem item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ClearItemList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteItem(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public WorkItem GetItem(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<WorkItem> ReadItemList()
         {
             throw new NotImplementedException();
         }

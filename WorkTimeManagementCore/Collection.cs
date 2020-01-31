@@ -1,78 +1,161 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace WorkTimeManagementCore
 {
     public class DaylyCollection : ICollection
     {
-        public void AddItem(WorkItem item)
+        public List<IWorkItem> DaylyWorkItemList { get; private set; }
+        public TimeSpan Totaltime { get; private set; }
+
+        public DaylyCollection()
         {
-            throw new NotImplementedException();
+            DaylyWorkItemList = new List<IWorkItem>();
         }
 
-        public void ClearItemList()
+        public void AddItem(IWorkItem item)
         {
-            throw new NotImplementedException();
+            if( item is WorkItem)
+            {
+                DaylyWorkItemList.Add(item);
+            }
+        }
+
+        public void AddItemList(List<IWorkItem> workItemList)
+        {
+            foreach(var item in workItemList)
+            {
+                if(item is WorkItem)
+                {
+                    DaylyWorkItemList.Add(item);
+                }
+            }
+        }
+
+        public IWorkItem GetItem(Guid id)
+        {
+            var item = DaylyWorkItemList.Find(n => n.ID == id);
+            if(item!=null)
+            {
+                return item;
+            }
+            else
+            {
+                return new NullWorkItem();
+            }
+        }
+
+        public List<IWorkItem> ReadItemList()
+        {
+            return DaylyWorkItemList;
+        }
+
+        public void UpdateItem(Guid id,IWorkItem item)
+        {
+            if(item is WorkItem)
+            {
+                DaylyWorkItemList.Where(n => n.ID == id)
+                    .Select(x => x = item);
+            }
+            else
+            {
+                throw new Exception("No item");
+            }
         }
 
         public void DeleteItem(Guid id)
         {
-            throw new NotImplementedException();
+            DaylyWorkItemList.RemoveAll(item => item.ID == id);
         }
 
-        public WorkItem GetItem(Guid id)
+        public void ClearItemList()
         {
-            throw new NotImplementedException();
-        }
-
-        public List<WorkItem> ReadItemList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateItem(Guid id)
-        {
-            throw new NotImplementedException();
+            DaylyWorkItemList.Clear();
         }
     }
 
     public class MonthlyCollection : ICollection
     {
-        public void AddItem(WorkItem item)
+        public List<IWorkItem> MonthlyItemList { get; private set; }
+        public TimeSpan TotalTime { get; private set; }
+        public Dictionary<string,TimeSpan> MonthlyWorkCodeTime { get; private set; }
+        public void AddItem(IWorkItem item)
         {
-            throw new NotImplementedException();
+            if(item is WorkItem)
+            {
+                MonthlyItemList.Add(item);
+            }
+        }
+
+        public void AddItemList(List<IWorkItem> workItemList)
+        {
+            foreach(var item in workItemList)
+            {
+                if(item is WorkItem)
+                {
+                    MonthlyItemList.Add(item);
+                }
+                else
+                {
+                    throw new Exception("Include Null Object");
+                }
+            }
         }
 
         public void ClearItemList()
         {
-            throw new NotImplementedException();
+            MonthlyItemList.Clear();
         }
 
         public void DeleteItem(Guid id)
         {
-            throw new NotImplementedException();
+            MonthlyItemList.RemoveAll(item => item.ID == id);
         }
 
-        public WorkItem GetItem(Guid id)
+        public IWorkItem GetItem(Guid id)
         {
-            throw new NotImplementedException();
+            var item = MonthlyItemList.Find(n => n.ID == id);
+            if (item != null)
+            {
+                return item;
+            }
+            else
+            {
+                return new NullWorkItem();
+            }
+
         }
 
-        public List<WorkItem> ReadItemList()
+        public List<IWorkItem> ReadItemList()
         {
-            throw new NotImplementedException();
+            return MonthlyItemList;
         }
 
-        public void UpdateItem(Guid id)
+        public void UpdateItem(Guid id, IWorkItem item)
         {
-            throw new NotImplementedException();
+            if (item is WorkItem)
+            {
+                MonthlyItemList.Where(n => n.ID == id)
+                    .Select(x => x = item);
+            }
+            else
+            {
+                throw new Exception("No item");
+            }
+
         }
     }
 
     public class TotalCollection : ICollection
     {
-        public void AddItem(WorkItem item)
+        public void AddItem(IWorkItem item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddItemList(List<IWorkItem> workItemList)
         {
             throw new NotImplementedException();
         }
@@ -87,17 +170,17 @@ namespace WorkTimeManagementCore
             throw new NotImplementedException();
         }
 
-        public WorkItem GetItem(Guid id)
+        public IWorkItem GetItem(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public List<WorkItem> ReadItemList()
+        public List<IWorkItem> ReadItemList()
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateItem(Guid id)
+        public void UpdateItem(Guid id, IWorkItem item)
         {
             throw new NotImplementedException();
         }

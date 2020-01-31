@@ -6,10 +6,11 @@ namespace WorkTimeManagementCore
 {
     interface ICollection
     {
-        void AddItem(WorkItem item);
-        WorkItem GetItem(Guid id);
-        List<WorkItem> ReadItemList();
-        void UpdateItem(Guid id);
+        void AddItem(IWorkItem item);
+        void AddItemList(List<IWorkItem> workItemList);
+        IWorkItem GetItem(Guid id);
+        List<IWorkItem> ReadItemList();
+        void UpdateItem(Guid id,IWorkItem item);
         void DeleteItem(Guid id);
         void ClearItemList();
     }

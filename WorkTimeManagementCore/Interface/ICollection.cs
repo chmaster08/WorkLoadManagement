@@ -6,7 +6,6 @@ namespace WorkTimeManagementCore.Interface
 {
     public interface ICollection
     {
-        DateTime Date { get; set; }
 
         void AddItem(IWorkItem item);
         void AddItemList(List<IWorkItem> workItemList);

@@ -16,7 +16,6 @@ namespace WorkTimeManagementCore
     public class DaylyCollection : ICollection
     {
         public List<IWorkItem> DaylyWorkItemList { get; private set; }
-        public DateTime Date { get; set; }
 
 
         public TimeSpan Totaltime { get; private set; }
@@ -24,7 +23,6 @@ namespace WorkTimeManagementCore
         public DaylyCollection(DateTime date)
         {
             DaylyWorkItemList = new List<IWorkItem>();
-            Date = date.Date;
         }
 
         public void AddItem(IWorkItem item)
@@ -93,12 +91,10 @@ namespace WorkTimeManagementCore
         public List<IWorkItem> MonthlyItemList { get; private set; }
         public TimeSpan TotalTime { get; private set; }
         public Dictionary<string,TimeSpan> MonthlyWorkCodeTime { get; private set; }
-        public DateTime Date { get; set; }
 
         public MonthlyCollection(DateTime date)
         {
             MonthlyItemList = new List<IWorkItem>();
-            Date = date;
         }
 
         public void AddItem(IWorkItem item)

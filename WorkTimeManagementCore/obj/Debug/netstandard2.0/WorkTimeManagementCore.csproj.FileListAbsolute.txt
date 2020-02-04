@@ -1,0 +1,11 @@
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.csprojAssemblyReference.cache
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.AssemblyInfoInputs.cache
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.AssemblyInfo.cs
+C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore\bin\Debug\netstandard2.0\WorkTimeManagementCore.deps.json
+C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore\bin\Debug\netstandard2.0\WorkTimeManagementCore.dll
+C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore\bin\Debug\netstandard2.0\WorkTimeManagementCore.pdb
+C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.csprojAssemblyReference.cache
+C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.AssemblyInfoInputs.cache
+C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.AssemblyInfo.cs
+C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.dll
+C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.pdb

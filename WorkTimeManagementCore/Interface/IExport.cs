@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WorkTimeManagementCore
+namespace WorkTimeManagementCore.Interface
 {
     interface IExport
     {

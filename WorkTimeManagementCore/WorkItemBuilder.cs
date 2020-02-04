@@ -12,7 +12,7 @@ namespace WorkTimeManagementCore
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public DateTime CreateTime { get; set; }
-        public string workCode { get; set; }
+        public string WorkCode { get; set; }
         public string Comment { get; set; }
 
         public WorkItem Build(out List<string> errormsg)
@@ -23,7 +23,7 @@ namespace WorkTimeManagementCore
                 errormsg.Add("Time Setting Error");
                 //throw new Exception("End Time Setting Error");
             }
-            if(workCode==null)
+            if(WorkCode==null)
             {
                 errormsg.Add("No WorkCode Error");
                 //throw new ArgumentNullException("WorkCode Null");

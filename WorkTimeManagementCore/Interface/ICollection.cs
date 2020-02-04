@@ -4,9 +4,16 @@ using System.Text;
 
 namespace WorkTimeManagementCore.Interface
 {
+    public enum Collections
+    {
+        Total,
+        Monthly,
+        Dayly
+    }
     public interface ICollection
     {
-
+        Collections CollectionType { get;}
+        DateTime Date { get; set; }
         void AddItem(IWorkItem item);
         void AddItemList(List<IWorkItem> workItemList);
         IWorkItem GetItem(Guid id);

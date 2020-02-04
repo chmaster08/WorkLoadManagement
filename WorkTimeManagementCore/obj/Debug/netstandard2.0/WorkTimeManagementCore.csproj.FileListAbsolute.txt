@@ -9,3 +9,8 @@ C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore
 C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.AssemblyInfo.cs
 C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.dll
 C:\Users\smart\source\repos\chmaster08\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkTimeManagementCore\bin\Debug\netstandard2.0\WorkTimeManagementCore.deps.json
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkTimeManagementCore\bin\Debug\netstandard2.0\WorkTimeManagementCore.dll
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkTimeManagementCore\bin\Debug\netstandard2.0\WorkTimeManagementCore.pdb
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.dll
+C:\Users\e13498\Documents\workshop\WorkLoadManagement\WorkTimeManagementCore\obj\Debug\netstandard2.0\WorkTimeManagementCore.pdb

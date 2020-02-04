@@ -8,16 +8,19 @@ namespace WorkTimeManagementCore
 {
     public class CollectionController
     {
+
+        private bool istotalexist = false;
         public CollectionController()
         {
-            CollectionList = new Dictionary<Collections, ICollection>();
+            CollectionList = new List<ICollection>();
         }
 
-        public Dictionary<Collections, ICollection> CollectionList { get; set; }
+
+        public List<ICollection> CollectionList { get; set; }
 
         public void AddItem(IWorkItem item)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void AddItemList(List<IWorkItem> itemlist)
@@ -47,6 +50,29 @@ namespace WorkTimeManagementCore
 
         public void RegisterCollection(ICollection collection)
         {
+            switch (collection.CollectionType)
+            {
+                case Collections.Dayly:
+                    if(!CollectionList.Where(item=>item.CollectionType==Collections.Dayly).Any(item => item.Date==collection.Date.Date))
+                    {
+                        CollectionList.Add(collection);
+                    }
+                    break;
+                case Collections.Monthly:
+                    if(!CollectionList.Where(item => item.CollectionType==Collections.Monthly).Any(item => item.Date.Month==collection.Date.Month))
+                    {
+                        CollectionList.Add(collection);
+                    }
+                    break;
+                case Collections.Total:
+                    if(!istotalexist)
+                    {
+                        CollectionList.Add(collection);
+                        istotalexist = true;
+                    }
+                    break;
+            }
+
         }
 
         public void UpdateItem(Guid id, IWorkItem item)

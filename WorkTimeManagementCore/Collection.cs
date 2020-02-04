@@ -7,18 +7,23 @@ using WorkTimeManagementCore.Interface;
 namespace WorkTimeManagementCore
 {
 
-    public enum Collections
-    {
-        Total,
-        Monthly,
-        Dayly
-    }
+    
     public class DaylyCollection : ICollection
     {
         public List<IWorkItem> DaylyWorkItemList { get; private set; }
+        public DateTime Date { get; set; }
 
 
         public TimeSpan Totaltime { get; private set; }
+
+        public Collections CollectionType
+        {
+            get
+            {
+                return Collections.Dayly;
+            }
+
+        }
 
         public DaylyCollection(DateTime date)
         {
@@ -91,7 +96,16 @@ namespace WorkTimeManagementCore
         public List<IWorkItem> MonthlyItemList { get; private set; }
         public TimeSpan TotalTime { get; private set; }
         public Dictionary<string,TimeSpan> MonthlyWorkCodeTime { get; private set; }
+        public DateTime Date { get; set; }
 
+        public Collections CollectionType
+        {
+            get
+            {
+                return Collections.Monthly;
+            }
+
+        }
         public MonthlyCollection(DateTime date)
         {
             MonthlyItemList = new List<IWorkItem>();
@@ -168,6 +182,15 @@ namespace WorkTimeManagementCore
     {
         public List<IWorkItem> TotalWorkItem { get; private set; }
         public DateTime Date { get; set; }
+
+        public Collections CollectionType
+        {
+            get
+            {
+                return Collections.Total;
+            }
+
+        }
 
         public void AddItem(IWorkItem item)
         {

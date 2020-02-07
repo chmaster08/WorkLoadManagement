@@ -96,7 +96,7 @@ namespace WorkTimeManagementCore
         public List<IWorkItem> MonthlyItemList { get; private set; }
         public TimeSpan TotalTime { get; private set; }
         public Dictionary<string,TimeSpan> MonthlyWorkCodeTime { get; private set; }
-        public DateTime Date { get; set; }
+        public DateTime  Date{ get; set; }
 
         public Collections CollectionType
         {
@@ -116,6 +116,7 @@ namespace WorkTimeManagementCore
             if(item is WorkItem)
             {
                 MonthlyItemList.Add(item);
+                Calc(item);
             }
         }
 
@@ -141,6 +142,7 @@ namespace WorkTimeManagementCore
 
         public void DeleteItem(Guid id)
         {
+            minuscalc(id);
             MonthlyItemList.RemoveAll(item => item.ID == id);
         }
 
@@ -167,8 +169,9 @@ namespace WorkTimeManagementCore
         {
             if (item is WorkItem)
             {
-                MonthlyItemList.Where(n => n.ID == id)
-                    .Select(x => x = item);
+                DeleteItem(id);
+                AddItem(item);
+
             }
             else
             {
@@ -176,12 +179,32 @@ namespace WorkTimeManagementCore
             }
 
         }
+        public void Calc(IWorkItem item)
+        {
+            TotalTime += (item.EndTime - item.StartTime);
+            string workcode = item.WorkCode;
+            if (!MonthlyWorkCodeTime.ContainsKey(workcode))
+            {
+                MonthlyWorkCodeTime[workcode] = item.WorkTime;
+            }
+            else
+            {
+                MonthlyWorkCodeTime[workcode] += item.WorkTime;
+            }
+        }
+        private void minuscalc(Guid id)
+        {
+            var previtem = GetItem(id);
+            MonthlyWorkCodeTime[previtem.WorkCode] -= previtem.WorkTime;
+            TotalTime -= previtem.WorkTime;
+        }
+        
     }
 
     public class TotalCollection : ICollection
     {
         public List<IWorkItem> TotalWorkItem { get; private set; }
-        public DateTime Date { get; set; }
+        public TimeSpan TotalTime { get; private set; }
 
         public Collections CollectionType
         {
@@ -197,6 +220,7 @@ namespace WorkTimeManagementCore
             if(item is WorkItem)
             {
                 TotalWorkItem.Add(item);
+                Calc(item);
             }
         }
 
@@ -214,11 +238,13 @@ namespace WorkTimeManagementCore
         public void ClearItemList()
         {
             TotalWorkItem.Clear();
+            TotalTime = new TimeSpan(0, 0, 0);
         }
 
         public void DeleteItem(Guid id)
         {
-            TotalWorkItem.RemoveAll(item => item.ID == id);
+            minusCalc(id);
+            TotalWorkItem.Remove(GetItem(id));
         }
 
         public IWorkItem GetItem(Guid id)
@@ -244,14 +270,25 @@ namespace WorkTimeManagementCore
         {
             if (item is WorkItem)
             {
-                TotalWorkItem.Where(n => n.ID == id)
-                    .Select(x => x = item);
+                DeleteItem(id);
+                AddItem(item);
             }
             else
             {
                 throw new Exception("No item");
             }
 
+        }
+        private void Calc(IWorkItem item)
+        {
+            
+            TotalTime += item.WorkTime;
+            
+        }
+        private void minusCalc(Guid id)
+        {
+            var item = GetItem(id);
+            TotalTime -= item.WorkTime;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace WorkTimeManagementCore
         public DateTime CreateTime { get; set; }
         public string WorkCode { get; set; }
         public string Comment { get; set; }
+        public TimeSpan WorkTime { get;}
 
         public WorkItem Build(out List<string> errormsg)
         {

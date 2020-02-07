@@ -14,6 +14,7 @@ namespace WorkTimeManagementCore
         DateTime CreateTime { get; set; }
         string WorkCode { get; set; }
         string Comment { get; set; }
+        TimeSpan WorkTime { get; }
 
     }
     public class WorkItem:IWorkItem
@@ -38,6 +39,10 @@ namespace WorkTimeManagementCore
         public DateTime CreateTime { get; set; }
         public string WorkCode { get; set; }
         public string Comment { get; set; }
+        public TimeSpan WorkTime
+        {
+            get {return EndTime - StartTime; }
+        }
 
         public TimeSpan GetWorkTime()
         {
@@ -53,6 +58,8 @@ namespace WorkTimeManagementCore
         public DateTime CreateTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string WorkCode { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Comment { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public TimeSpan WorkTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
     }
 
 }

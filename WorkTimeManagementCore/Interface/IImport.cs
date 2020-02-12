@@ -4,10 +4,10 @@ using System.Text;
 
 namespace WorkTimeManagementCore.Interface
 {
-    interface IImport
+    public interface IImport
     {
-        List<WorkItem> GetAllItems();
-        List<WorkItem> GetMonthlyItems(int month);
-        List<WorkItem> GetNewestSomeItems(int amount);
+        List<IWorkItem> GetAllItems();
+        List<IWorkItem> GetMonthlyItems(int month);
+        List<IWorkItem> GetNewestSomeItems(int amount);
     }
 }

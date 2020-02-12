@@ -9,8 +9,8 @@ namespace WorkTimeManagementCore
 
         private List<IWorkItem> workItemList;
         private CollectionController collectionController;
-        private string codepath = @"C:\Users\" + Environment.UserName + @"\CodeOutput.data";
-        private string datapath = @"C:\Users\" + Environment.UserName + @"\DataOutput.data";
+        private ImportData myImportData;
+        
 
         public Control()
         {
@@ -29,8 +29,19 @@ namespace WorkTimeManagementCore
 
         public void ImportData()
         {
-
+            try
+            {
+                myImportData = new ImportData(workItemList, new ImportFromAWS());
+                myImportData.InitialImport();
+            }
+            catch
+            {
+                myImportData = new ImportData(workItemList, new ImportFromLocal());
+                myImportData.InitialImport();
+            }
         }
+
+
 
         
 

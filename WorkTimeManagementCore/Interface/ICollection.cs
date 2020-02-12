@@ -13,6 +13,8 @@ namespace WorkTimeManagementCore.Interface
     public interface ICollection
     {
         Collections CollectionType { get;}
+        List<IWorkItem> WorkItemList { get; set; }
+
         void AddItem(IWorkItem item);
         void AddItemList(List<IWorkItem> workItemList);
         IWorkItem GetItem(Guid id);
@@ -24,6 +26,6 @@ namespace WorkTimeManagementCore.Interface
 
     public interface IPartialCollection:ICollection
     {
-        DateTime Date { get;set; }
+        string Date { get;set; }
     }
 }

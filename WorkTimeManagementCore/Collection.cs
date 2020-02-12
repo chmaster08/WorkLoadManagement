@@ -8,13 +8,13 @@ namespace WorkTimeManagementCore
 {
 
     
-    public class DaylyCollection : ICollection
+    public class DaylyCollection : IPartialCollection
     {
-        public List<IWorkItem> DaylyWorkItemList { get; private set; }
-        public DateTime Date { get; set; }
+        public List<IWorkItem> WorkItemList { get; set; }
+        public string Date { get; set; }
 
 
-        public TimeSpan Totaltime { get; private set; }
+        public TimeSpan TotalTime { get; private set; }
 
         public Collections CollectionType
         {
@@ -27,14 +27,17 @@ namespace WorkTimeManagementCore
 
         public DaylyCollection(DateTime date)
         {
-            DaylyWorkItemList = new List<IWorkItem>();
+            WorkItemList = new List<IWorkItem>();
+            Date = date.ToString("yyyy/MM/dd");
         }
 
         public void AddItem(IWorkItem item)
         {
             if( item is WorkItem)
             {
-                DaylyWorkItemList.Add(item);
+                WorkItemList.Add(item);
+                Calc(item);
+
             }
         }
 
@@ -44,14 +47,14 @@ namespace WorkTimeManagementCore
             {
                 if(item is WorkItem)
                 {
-                    DaylyWorkItemList.Add(item);
+                    WorkItemList.Add(item);
                 }
             }
         }
 
         public IWorkItem GetItem(Guid id)
         {
-            var item = DaylyWorkItemList.Find(n => n.ID == id);
+            var item = WorkItemList.Find(n => n.ID == id);
             if(item!=null)
             {
                 return item;
@@ -64,39 +67,52 @@ namespace WorkTimeManagementCore
 
         public List<IWorkItem> ReadItemList()
         {
-            return DaylyWorkItemList;
+            return WorkItemList;
         }
 
-        public void UpdateItem(Guid id,IWorkItem item)
+        public void UpdateItem(Guid id, IWorkItem item)
         {
-            if(item is WorkItem)
+            if (item is WorkItem)
             {
-                DaylyWorkItemList.Where(n => n.ID == id)
-                    .Select(x => x = item);
+                DeleteItem(id);
+                AddItem(item);
+
             }
             else
             {
                 throw new Exception("No item");
             }
+
         }
 
         public void DeleteItem(Guid id)
         {
-            DaylyWorkItemList.RemoveAll(item => item.ID == id);
+            minuscalc(id);
+            WorkItemList.RemoveAll(item => item.ID == id);
         }
 
         public void ClearItemList()
         {
-            DaylyWorkItemList.Clear();
+            WorkItemList.Clear();
+        }
+        public void Calc(IWorkItem item)
+        {
+            TotalTime += (item.EndTime - item.StartTime);
+            
+        }
+        private void minuscalc(Guid id)
+        {
+            var previtem = GetItem(id);
+            TotalTime -= previtem.WorkTime;
         }
     }
 
-    public class MonthlyCollection : ICollection
+    public class MonthlyCollection : IPartialCollection
     {
-        public List<IWorkItem> MonthlyItemList { get; private set; }
+        public List<IWorkItem> WorkItemList { get; set; }
         public TimeSpan TotalTime { get; private set; }
         public Dictionary<string,TimeSpan> MonthlyWorkCodeTime { get; private set; }
-        public DateTime  Date{ get; set; }
+        public string  Date{ get; set; }
 
         public Collections CollectionType
         {
@@ -108,14 +124,14 @@ namespace WorkTimeManagementCore
         }
         public MonthlyCollection(DateTime date)
         {
-            MonthlyItemList = new List<IWorkItem>();
+            WorkItemList = new List<IWorkItem>();
         }
 
         public void AddItem(IWorkItem item)
         {
             if(item is WorkItem)
             {
-                MonthlyItemList.Add(item);
+                WorkItemList.Add(item);
                 Calc(item);
             }
         }
@@ -126,7 +142,7 @@ namespace WorkTimeManagementCore
             {
                 if(item is WorkItem)
                 {
-                    MonthlyItemList.Add(item);
+                    WorkItemList.Add(item);
                 }
                 else
                 {
@@ -137,18 +153,18 @@ namespace WorkTimeManagementCore
 
         public void ClearItemList()
         {
-            MonthlyItemList.Clear();
+            WorkItemList.Clear();
         }
 
         public void DeleteItem(Guid id)
         {
             minuscalc(id);
-            MonthlyItemList.RemoveAll(item => item.ID == id);
+            WorkItemList.RemoveAll(item => item.ID == id);
         }
 
         public IWorkItem GetItem(Guid id)
         {
-            var item = MonthlyItemList.Find(n => n.ID == id);
+            var item = WorkItemList.Find(n => n.ID == id);
             if (item != null)
             {
                 return item;
@@ -162,7 +178,7 @@ namespace WorkTimeManagementCore
 
         public List<IWorkItem> ReadItemList()
         {
-            return MonthlyItemList;
+            return WorkItemList;
         }
 
         public void UpdateItem(Guid id, IWorkItem item)
@@ -203,7 +219,7 @@ namespace WorkTimeManagementCore
 
     public class TotalCollection : ICollection
     {
-        public List<IWorkItem> TotalWorkItem { get; private set; }
+        public List<IWorkItem> WorkItemList { get; set; }
         public TimeSpan TotalTime { get; private set; }
 
         public Collections CollectionType
@@ -219,7 +235,7 @@ namespace WorkTimeManagementCore
         {
             if(item is WorkItem)
             {
-                TotalWorkItem.Add(item);
+                WorkItemList.Add(item);
                 Calc(item);
             }
         }
@@ -230,26 +246,26 @@ namespace WorkTimeManagementCore
             {
                 if(item is WorkItem)
                 {
-                    TotalWorkItem.Add(item);
+                    WorkItemList.Add(item);
                 }
             }
         }
 
         public void ClearItemList()
         {
-            TotalWorkItem.Clear();
+            WorkItemList.Clear();
             TotalTime = new TimeSpan(0, 0, 0);
         }
 
         public void DeleteItem(Guid id)
         {
             minusCalc(id);
-            TotalWorkItem.Remove(GetItem(id));
+            WorkItemList.Remove(GetItem(id));
         }
 
         public IWorkItem GetItem(Guid id)
         {
-            var item = TotalWorkItem.Find(n => n.ID == id);
+            var item = WorkItemList.Find(n => n.ID == id);
             if (item != null)
             {
                 return item;
@@ -263,7 +279,7 @@ namespace WorkTimeManagementCore
 
         public List<IWorkItem> ReadItemList()
         {
-            return TotalWorkItem;
+            return WorkItemList;
         }
 
         public void UpdateItem(Guid id, IWorkItem item)
